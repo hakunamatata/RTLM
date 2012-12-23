@@ -1,0 +1,7 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\bin\Debug\RTLM.CCRM.DAL.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\bin\Debug\RTLM.CCRM.DAL.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\bin\Debug\DTcms.DBUtility.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\bin\Debug\DTcms.DBUtility.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.pdb

@@ -1,0 +1,25 @@
+F:\其它源码\DTcms_20_sql_src\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+F:\其它源码\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.dll
+F:\其它源码\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.pdb
+F:\其它源码\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.dll
+F:\其它源码\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.pdb
+E:\web\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.dll
+E:\web\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.pdb
+E:\web\DTcms_20_sql_src\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+E:\web\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.dll
+E:\web\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.pdb
+F:\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.dll
+F:\DTcms_20_sql_src\DTcms.Common\bin\Debug\DTcms.Common.pdb
+F:\DTcms_20_sql_src\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+F:\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.dll
+F:\DTcms_20_sql_src\DTcms.Common\obj\Debug\DTcms.Common.pdb
+F:\82640175001440\DTcms.Common\bin\Debug\DTcms.Common.dll
+F:\82640175001440\DTcms.Common\bin\Debug\DTcms.Common.pdb
+F:\82640175001440\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+F:\82640175001440\DTcms.Common\obj\Debug\DTcms.Common.dll
+F:\82640175001440\DTcms.Common\obj\Debug\DTcms.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Common\bin\Debug\DTcms.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Common\bin\Debug\DTcms.Common.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Common\obj\Debug\DTcms.Common.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Common\obj\Debug\DTcms.Common.pdb

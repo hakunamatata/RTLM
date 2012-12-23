@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
