@@ -378,7 +378,7 @@
     <Content Include="editor\themes\default\default.png" />
     <Content Include="editor\themes\simple\simple.css" />
     <Content Include="favicon.ico" />
-    <Content Include="index.aspx" />
+    <Content Include="index.html" />
     <Content Include="scripts\calendar.js" />
     <Content Include="scripts\jquery\jquery-1.3.2.min.js" />
     <Content Include="scripts\jquery\jquery-1.5.2.min.js" />
@@ -547,6 +547,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="login.html" />
+    <Content Include="register.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admin\article\edit.aspx.cs">
