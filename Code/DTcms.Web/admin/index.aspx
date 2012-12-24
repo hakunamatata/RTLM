@@ -278,9 +278,6 @@
                     <li><a class="l-link" href="javascript:f_addTab('plugin_list','系统插件管理','settings/plugin_list.aspx')">系统插件管理</a></li>
                     <%} if (IsAdminLevel("sys_templet", DTEnums.ActionEnum.View.ToString()))
                       { %>
-                    <li><a class="l-link" href="javascript:f_addTab('templet_list','系统模板管理','settings/templet_list.aspx')">系统模板管理</a></li>
-                    <%} if (IsAdminLevel("sys_log", DTEnums.ActionEnum.View.ToString()))
-                      { %>
                     <li><a class="l-link" href="javascript:f_addTab('manager_log','系统日志管理','manager/manager_log.aspx')">系统日志管理</a></li>
                     <%} %>
                     <li><a class="l-link" href="javascript:f_addTab('comment_list','内容评论管理','comment/list.aspx')">内容评论管理</a></li>

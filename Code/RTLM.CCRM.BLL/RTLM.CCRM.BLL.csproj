@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\DTcms.Web\bin\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customer.cs" />
     <Compile Include="users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="consumer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTcms.DBUtility\DTcms.DBUtility.csproj">
+      <Project>{E2C9435B-CB68-465A-BDF9-333F2D75E81B}</Project>
+      <Name>DTcms.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTLM.CCRM.DAL\RTLM.CCRM.DAL.csproj">
+      <Project>{BC140666-CAF4-466D-A45D-2A49970CF5AE}</Project>
+      <Name>RTLM.CCRM.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTLM.CCRM.Model\RTLM.CCRM.Model.csproj">
+      <Project>{30482E8B-44E4-48C3-844E-905AD3740A81}</Project>
+      <Name>RTLM.CCRM.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -63,3 +63,16 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.BLL\bin
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.BLL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.BLL\obj\Debug\DTcms.BLL.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.BLL\obj\Debug\DTcms.BLL.pdb
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.BLL.dll
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.BLL.pdb
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.Common.dll
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.DAL.dll
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.Model.dll
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.DBUtility.dll
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.Common.pdb
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.DAL.pdb
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.Model.pdb
+C:\Github\RTLM\Code\DTcms.BLL\bin\Debug\DTcms.DBUtility.pdb
+C:\Github\RTLM\Code\DTcms.BLL\obj\Debug\DTcms.BLL.csprojResolveAssemblyReference.cache
+C:\Github\RTLM\Code\DTcms.BLL\obj\Debug\DTcms.BLL.dll
+C:\Github\RTLM\Code\DTcms.BLL\obj\Debug\DTcms.BLL.pdb

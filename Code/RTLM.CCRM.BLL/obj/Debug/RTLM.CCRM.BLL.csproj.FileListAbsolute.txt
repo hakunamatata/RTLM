@@ -1,0 +1,12 @@
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.dll
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.dll
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.dll
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.dll
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\DTcms.DBUtility.dll
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\DTcms.DBUtility.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.csprojResolveAssemblyReference.cache
+C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\log4net.dll

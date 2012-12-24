@@ -143,5 +143,55 @@ namespace RTLM.CCRM.DAL{
                 throw new Exception("获取表 ccrm_consumer 数据时失败。\n" + ex.Message);
             }
         }
+
+
+        public DataTable GetDataBy(string id)
+        {
+            try
+            {
+                string Query = @"SELECT 
+				cid,
+				real_name,
+				city,
+				first_order_date,
+				frequent_area,
+				personal_state,
+				last_order_date
+				FROM ccrm_consumer
+                WHERE cid=@id
+                ";
+                db.AddParameter(new SqlParameter("@id", id));
+                return db.ExecuteDataSet(Query, connState).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取表 ccrm_consumer 数据时失败。\n" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 消费者是否存在
+        /// </summary>
+        /// <param name="param_id">用户编号|email|手机|用户名</param>
+        /// <returns></returns>
+        public static int Exist(string param_id)
+        {
+            DbHelper db = new DbHelper();
+            try
+            {
+                string Query = @"SELECT COUNT(*) FROM dt_users du, ccrm_consumer cc
+                                WHERE du.id = cc.cid
+                                AND du.id = @id OR du.email = @id OR du.[user_name]=@id OR du.mobile = @id";
+                SqlParameter[] Parms = {
+			                                new SqlParameter("@id",  param_id)
+		                                };
+                db.AddParameter(Parms);
+                return (int)db.ExecuteScalar(Query);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("执行方法 Exist 时出错。\n" + ex.Message);
+            }
+        }
     }
 }

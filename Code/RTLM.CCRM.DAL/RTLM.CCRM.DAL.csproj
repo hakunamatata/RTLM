@@ -43,6 +43,7 @@
     <Compile Include="behavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="consumer.cs" />
+    <Compile Include="user.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTcms.DBUtility\DTcms.DBUtility.csproj">

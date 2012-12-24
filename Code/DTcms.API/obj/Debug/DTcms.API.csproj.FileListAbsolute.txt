@@ -88,3 +88,21 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.API\bin
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.API\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.API\obj\Debug\DTcms.API.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.API\obj\Debug\DTcms.API.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.API.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.API.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.BLL.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Common.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Model.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Web.UI.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.DAL.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\LitJSON.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.DBUtility.dll
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.BLL.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Common.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Model.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.Web.UI.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.DAL.pdb
+C:\Github\RTLM\Code\DTcms.API\bin\Debug\DTcms.DBUtility.pdb
+C:\Github\RTLM\Code\DTcms.API\obj\Debug\DTcms.API.csprojResolveAssemblyReference.cache
+C:\Github\RTLM\Code\DTcms.API\obj\Debug\DTcms.API.dll
+C:\Github\RTLM\Code\DTcms.API\obj\Debug\DTcms.API.pdb

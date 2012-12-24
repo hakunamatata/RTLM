@@ -7,10 +7,9 @@ using System.Data;
 
 namespace RTLM.CCRM.Model
 {
-    public class Consumer
+    public class Consumer : User
     {
 
-        private int _cid;
         private string _real_name;
         private int? _city;
         private DateTime? _first_order_date;
@@ -18,11 +17,6 @@ namespace RTLM.CCRM.Model
         private int? _personal_state;
         private DateTime? _last_order_date;
 
-        public int ID
-        {
-            get { return _cid; }
-            set { _cid = value; }
-        }
         public string RealName
         {
             get { return _real_name; }

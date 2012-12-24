@@ -33,3 +33,10 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Model\b
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Model\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Model\obj\Debug\DTcms.Model.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.Model\obj\Debug\DTcms.Model.pdb
+C:\Github\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Model.dll
+C:\Github\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Model.pdb
+C:\Github\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Common.dll
+C:\Github\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Common.pdb
+C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
+C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.dll
+C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.pdb

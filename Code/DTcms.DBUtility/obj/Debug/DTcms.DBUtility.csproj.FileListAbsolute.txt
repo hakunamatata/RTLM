@@ -33,3 +33,10 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.DBUtili
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.DBUtility\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb
+C:\Github\RTLM\Code\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.dll
+C:\Github\RTLM\Code\DTcms.DBUtility\bin\Debug\DTcms.DBUtility.pdb
+C:\Github\RTLM\Code\DTcms.DBUtility\bin\Debug\DTcms.Common.dll
+C:\Github\RTLM\Code\DTcms.DBUtility\bin\Debug\DTcms.Common.pdb
+C:\Github\RTLM\Code\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.csprojResolveAssemblyReference.cache
+C:\Github\RTLM\Code\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.dll
+C:\Github\RTLM\Code\DTcms.DBUtility\obj\Debug\DTcms.DBUtility.pdb

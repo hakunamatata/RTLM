@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTcms.Web", "DTcms.Web\DTcms.Web.csproj", "{C1532D58-F3E4-486D-A798-BDEC101188A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Web", "DTcms.Web\RTLM.Web.csproj", "{C1532D58-F3E4-486D-A798-BDEC101188A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTcms.Common", "DTcms.Common\DTcms.Common.csproj", "{56213535-7FD9-4ACD-A497-705670CE61DC}"
 EndProject

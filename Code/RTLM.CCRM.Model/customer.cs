@@ -7,10 +7,9 @@ using System.Data;
 
 namespace RTLM.CCRM.Model
 {
-    public class Customer
+    public class Customer : User
     {
 
-        private int _cid;
         private string _store_name;
         private int? _city;
         private string _frequent_area;
@@ -19,13 +18,7 @@ namespace RTLM.CCRM.Model
         private DateTime? _off_work_time;
         private decimal? _frequent_loc_x;
         private decimal? _frequent_loc_y;
-        private int? _online_state;
 
-        public int ID
-        {
-            get { return _cid; }
-            set { _cid = value; }
-        }
         public string StoreName
         {
             get { return _store_name; }
@@ -66,10 +59,6 @@ namespace RTLM.CCRM.Model
             get { return _frequent_loc_y; }
             set { _frequent_loc_y = value; }
         }
-        public int? OnlineState
-        {
-            get { return _online_state; }
-            set { _online_state = value; }
-        }
+
     }
 }
