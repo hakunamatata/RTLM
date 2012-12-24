@@ -40,33 +40,33 @@ namespace DTcms.Web.UI
         /// <param name="e">包含事件数据的 EventArgs</param>
         private void ReUrl_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext context = ((HttpApplication)sender).Context;
-            string requestPath = context.Request.Path; //获得当前页面，包含目录
-            string requestPage = requestPath.Substring(requestPath.LastIndexOf("/")); //获得当前页面，不包含目录
-            Model.siteconfig siteConfig = new BLL.siteconfig().loadConfig(Utils.GetXmlMapPath(DTKeys.FILE_SITE_XML_CONFING)); //获得站点配置信息
+            //HttpContext context = ((HttpApplication)sender).Context;
+            //string requestPath = context.Request.Path; //获得当前页面，包含目录
+            //string requestPage = requestPath.Substring(requestPath.LastIndexOf("/")); //获得当前页面，不包含目录
+            //Model.siteconfig siteConfig = new BLL.siteconfig().loadConfig(Utils.GetXmlMapPath(DTKeys.FILE_SITE_XML_CONFING)); //获得站点配置信息
 
-            bool isRewritePath = IsUrlRewrite(siteConfig.webpath, requestPath); //排除不需要URL重写的目录
-            switch (siteConfig.staticstatus)
-            {
-                case 0: //关闭重写
-                    if (isRewritePath && IsAspxFile(requestPath))
-                    {
-                        context.RewritePath(siteConfig.webpath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + requestPage);
-                    }
-                    break;
-                case 1: //伪URL重写
-                    if (isRewritePath)
-                    {
-                        RewriteUrl(context, siteConfig.webpath, requestPath, requestPage);
-                    }
-                    break;
-                case 2: //全静态
-                    if (requestPath.ToLower().Equals("/index.aspx"))
-                    {
-                        context.RewritePath(siteConfig.webpath + DTKeys.DIRECTORY_REWRITE_HTML + "/index." + siteConfig.staticextension);
-                    }
-                    break;
-            }
+            //bool isRewritePath = IsUrlRewrite(siteConfig.webpath, requestPath); //排除不需要URL重写的目录
+            //switch (siteConfig.staticstatus)
+            //{
+            //    case 0: //关闭重写
+            //        if (isRewritePath && IsAspxFile(requestPath))
+            //        {
+            //            context.RewritePath(siteConfig.webpath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + requestPage);
+            //        }
+            //        break;
+            //    case 1: //伪URL重写
+            //        if (isRewritePath)
+            //        {
+            //            RewriteUrl(context, siteConfig.webpath, requestPath, requestPage);
+            //        }
+            //        break;
+            //    case 2: //全静态
+            //        if (requestPath.ToLower().Equals("/index.aspx"))
+            //        {
+            //            context.RewritePath(siteConfig.webpath + DTKeys.DIRECTORY_REWRITE_HTML + "/index." + siteConfig.staticextension);
+            //        }
+            //        break;
+            //}
 
         }
         #endregion
@@ -80,19 +80,19 @@ namespace DTcms.Web.UI
         /// <param name="requestPath">获取的URL地址</param>
         private void RewriteUrl(HttpContext context, string dirPath, string requestPath, string requestPage)
         {
-            foreach (Model.url_rewrite url in SiteUrls.GetSiteUrls().Urls)
-            {
-                if ((Regex.IsMatch(requestPath, "^" + dirPath + url.pattern + "$", RegexOptions.None | RegexOptions.IgnoreCase)) && url.type != "no")
-                {
-                    string newUrl = Regex.Replace(requestPath, dirPath + url.pattern, url.querystring, RegexOptions.None | RegexOptions.IgnoreCase);
-                    context.RewritePath(dirPath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + url.page, string.Empty, newUrl);
-                    return;
-                }
-            }
-            if (IsAspxFile(requestPath))
-            {
-                context.RewritePath(dirPath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + requestPage);
-            }
+            //foreach (Model.url_rewrite url in SiteUrls.GetSiteUrls().Urls)
+            //{
+            //    if ((Regex.IsMatch(requestPath, "^" + dirPath + url.pattern + "$", RegexOptions.None | RegexOptions.IgnoreCase)) && url.type != "no")
+            //    {
+            //        string newUrl = Regex.Replace(requestPath, dirPath + url.pattern, url.querystring, RegexOptions.None | RegexOptions.IgnoreCase);
+            //        context.RewritePath(dirPath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + url.page, string.Empty, newUrl);
+            //        return;
+            //    }
+            //}
+            //if (IsAspxFile(requestPath))
+            //{
+            //    context.RewritePath(dirPath + DTKeys.DIRECTORY_REWRITE_ASPX + "/" + requestPage);
+            //}
         }
         #endregion
 

@@ -27,3 +27,8 @@ C:\Github\RTLM\Code\DTcms.Common\bin\Debug\DTcms.Common.dll
 C:\Github\RTLM\Code\DTcms.Common\bin\Debug\DTcms.Common.pdb
 C:\Github\RTLM\Code\DTcms.Common\obj\Debug\DTcms.Common.dll
 C:\Github\RTLM\Code\DTcms.Common\obj\Debug\DTcms.Common.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Common\bin\Debug\DTcms.Common.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Common\bin\Debug\DTcms.Common.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Common\obj\Debug\DTcms.Common.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Common\obj\Debug\DTcms.Common.pdb

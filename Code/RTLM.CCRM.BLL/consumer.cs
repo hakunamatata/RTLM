@@ -156,5 +156,36 @@ namespace RTLM.CCRM.BLL
             }
         }
 
+
+        /// <summary>
+        /// 用户名是否存在
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public int IsExistUserName(string username)
+        {
+            return 1;
+        }
+
+        /// <summary>
+        /// 邮箱是否存在
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public int IsExistEmail(string email)
+        {
+            return 1;
+        }
+
+        /// <summary>
+        /// 手机号码是否存在
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        public int IsExistMobile(string mobile)
+        {
+            return 1;
+        }
+
     }
 }

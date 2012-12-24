@@ -264,69 +264,69 @@ namespace DTcms.DAL
         public List<Model.url_rewrite> GetList(string channel)
         {
             List<Model.url_rewrite> ls = new List<Model.url_rewrite>();
-            string filePath = Utils.GetXmlMapPath(DTKeys.FILE_URL_XML_CONFING);
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filePath);
-            XmlNode xn = doc.SelectSingleNode("urls");
-            foreach (XmlElement xe in xn.ChildNodes)
-            {
-                if (xe.NodeType != XmlNodeType.Comment && xe.Name.ToLower() == "rewrite")
-                {
-                    if (xe.Attributes["name"] != null)
-                    {
-                        if (!string.IsNullOrEmpty(channel))
-                        {
-                            if (channel.ToLower() == xe.Attributes["channel"].Value.ToLower())
-                            {
-                                Model.url_rewrite model = new Model.url_rewrite();
-                                if (xe.Attributes["name"] != null)
-                                    model.name = xe.Attributes["name"].Value;
-                                if (xe.Attributes["path"] != null)
-                                    model.path = xe.Attributes["path"].Value;
-                                if (xe.Attributes["pattern"] != null)
-                                    model.pattern = xe.Attributes["pattern"].Value;
-                                if (xe.Attributes["page"] != null)
-                                    model.page = xe.Attributes["page"].Value;
-                                if (xe.Attributes["querystring"] != null)
-                                    model.querystring = xe.Attributes["querystring"].Value;
-                                if (xe.Attributes["templet"] != null)
-                                    model.templet = xe.Attributes["templet"].Value;
-                                if (xe.Attributes["channel"] != null)
-                                    model.channel = xe.Attributes["channel"].Value;
-                                if (xe.Attributes["type"] != null)
-                                    model.type = xe.Attributes["type"].Value;
-                                if (xe.Attributes["inherit"] != null)
-                                    model.inherit = xe.Attributes["inherit"].Value;
-                                ls.Add(model);
-                            }
-                        }
-                        else
-                        {
-                            Model.url_rewrite model = new Model.url_rewrite();
-                            if (xe.Attributes["name"] != null)
-                                model.name = xe.Attributes["name"].Value;
-                            if (xe.Attributes["path"] != null)
-                                model.path = xe.Attributes["path"].Value;
-                            if (xe.Attributes["pattern"] != null)
-                                model.pattern = xe.Attributes["pattern"].Value;
-                            if (xe.Attributes["page"] != null)
-                                model.page = xe.Attributes["page"].Value;
-                            if (xe.Attributes["querystring"] != null)
-                                model.querystring = xe.Attributes["querystring"].Value;
-                            if (xe.Attributes["templet"] != null)
-                                model.templet = xe.Attributes["templet"].Value;
-                            if (xe.Attributes["channel"] != null)
-                                model.channel = xe.Attributes["channel"].Value;
-                            if (xe.Attributes["type"] != null)
-                                model.type = xe.Attributes["type"].Value;
-                            if (xe.Attributes["inherit"] != null)
-                                model.inherit = xe.Attributes["inherit"].Value;
-                            ls.Add(model);
-                        }
+            //string filePath = Utils.GetXmlMapPath(DTKeys.FILE_URL_XML_CONFING);
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(filePath);
+            //XmlNode xn = doc.SelectSingleNode("urls");
+            //foreach (XmlElement xe in xn.ChildNodes)
+            //{
+            //    if (xe.NodeType != XmlNodeType.Comment && xe.Name.ToLower() == "rewrite")
+            //    {
+            //        if (xe.Attributes["name"] != null)
+            //        {
+            //            if (!string.IsNullOrEmpty(channel))
+            //            {
+            //                if (channel.ToLower() == xe.Attributes["channel"].Value.ToLower())
+            //                {
+            //                    Model.url_rewrite model = new Model.url_rewrite();
+            //                    if (xe.Attributes["name"] != null)
+            //                        model.name = xe.Attributes["name"].Value;
+            //                    if (xe.Attributes["path"] != null)
+            //                        model.path = xe.Attributes["path"].Value;
+            //                    if (xe.Attributes["pattern"] != null)
+            //                        model.pattern = xe.Attributes["pattern"].Value;
+            //                    if (xe.Attributes["page"] != null)
+            //                        model.page = xe.Attributes["page"].Value;
+            //                    if (xe.Attributes["querystring"] != null)
+            //                        model.querystring = xe.Attributes["querystring"].Value;
+            //                    if (xe.Attributes["templet"] != null)
+            //                        model.templet = xe.Attributes["templet"].Value;
+            //                    if (xe.Attributes["channel"] != null)
+            //                        model.channel = xe.Attributes["channel"].Value;
+            //                    if (xe.Attributes["type"] != null)
+            //                        model.type = xe.Attributes["type"].Value;
+            //                    if (xe.Attributes["inherit"] != null)
+            //                        model.inherit = xe.Attributes["inherit"].Value;
+            //                    ls.Add(model);
+            //                }
+            //            }
+            //            else
+            //            {
+            //                Model.url_rewrite model = new Model.url_rewrite();
+            //                if (xe.Attributes["name"] != null)
+            //                    model.name = xe.Attributes["name"].Value;
+            //                if (xe.Attributes["path"] != null)
+            //                    model.path = xe.Attributes["path"].Value;
+            //                if (xe.Attributes["pattern"] != null)
+            //                    model.pattern = xe.Attributes["pattern"].Value;
+            //                if (xe.Attributes["page"] != null)
+            //                    model.page = xe.Attributes["page"].Value;
+            //                if (xe.Attributes["querystring"] != null)
+            //                    model.querystring = xe.Attributes["querystring"].Value;
+            //                if (xe.Attributes["templet"] != null)
+            //                    model.templet = xe.Attributes["templet"].Value;
+            //                if (xe.Attributes["channel"] != null)
+            //                    model.channel = xe.Attributes["channel"].Value;
+            //                if (xe.Attributes["type"] != null)
+            //                    model.type = xe.Attributes["type"].Value;
+            //                if (xe.Attributes["inherit"] != null)
+            //                    model.inherit = xe.Attributes["inherit"].Value;
+            //                ls.Add(model);
+            //            }
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
             return ls;
         }
         #endregion

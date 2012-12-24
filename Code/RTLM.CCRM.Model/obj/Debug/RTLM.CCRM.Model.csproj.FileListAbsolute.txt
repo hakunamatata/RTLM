@@ -7,3 +7,8 @@ C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
 C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
 C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
 C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb

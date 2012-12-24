@@ -112,24 +112,24 @@ namespace DTcms.Web.UI
             {
                 string _result = string.Empty;
                 string _rewriteurl = string.Format(model.path, _params);
-                switch (config.staticstatus)
+                //switch (config.staticstatus)
+                //{
+                //    case 1: //URL重写
+                //        _result = config.webpath + _rewriteurl;
+                //        break;
+                //    case 2: //全静态
+                //        _rewriteurl = _rewriteurl.Substring(0, _rewriteurl.LastIndexOf(".") + 1);
+                //        _result = config.webpath + DTKeys.DIRECTORY_REWRITE_HTML + "/" + _rewriteurl + config.staticextension;
+                //        break;
+                //    default: //不开启
+                string _originalurl = model.page;
+                if (!string.IsNullOrEmpty(model.querystring))
                 {
-                    case 1: //URL重写
-                        _result = config.webpath + _rewriteurl;
-                        break;
-                    case 2: //全静态
-                        _rewriteurl = _rewriteurl.Substring(0, _rewriteurl.LastIndexOf(".") + 1);
-                        _result = config.webpath + DTKeys.DIRECTORY_REWRITE_HTML + "/" + _rewriteurl + config.staticextension;
-                        break;
-                    default: //不开启
-                        string _originalurl = model.page;
-                        if (!string.IsNullOrEmpty(model.querystring))
-                        {
-                            _originalurl = model.page + "?" + Regex.Replace(_rewriteurl, model.pattern, model.querystring, RegexOptions.None | RegexOptions.IgnoreCase);
-                        }
-                        _result = config.webpath + _originalurl;
-                        break;
+                    _originalurl = model.page + "?" + Regex.Replace(_rewriteurl, model.pattern, model.querystring, RegexOptions.None | RegexOptions.IgnoreCase);
                 }
+                _result = config.webpath + _originalurl;
+                //break;
+                //}
                 return _result;
             }
             catch

@@ -40,3 +40,10 @@ C:\Github\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Common.pdb
 C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.csprojResolveAssemblyReference.cache
 C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.dll
 C:\Github\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Model.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Model.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Common.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\bin\Debug\DTcms.Common.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\DTcms.Model\obj\Debug\DTcms.Model.pdb

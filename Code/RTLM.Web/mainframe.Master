@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mainframe.master.cs"
+    Inherits="DTcms.Web.mainframe" %>
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head runat="server">
+    <title>页面模板</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+        body
+        {
+            margin-top: 60px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Rtlm Client</a>
+                <ul class="nav">
+                    <li><a href="Default.aspx">首页</a></li>
+                    <li><a href="#">我要买</a></li>
+                    <li><a href="#">我的订单</a></li>
+                    <li class="span1"></li>
+                </ul>
+                <div class="nav">
+                    <form class="navbar-form pull-left">
+                    <div class="controls">
+                        <div class="input-append">
+                            <input class="span2" id="inputIcon" type="text" placeholder="输入订单号搜索订单">
+                            <span class="add-on"><i class="icon-search"></i></span>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="Login.aspx">登陆</a></li>
+                    <li class="active"><a href="Register.aspx">注册</a></li>
+                </ul>
+                <!--<ul class="nav pull-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">我的帐号
+                        <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">管理帐号</a></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputUserName">
+                        用户名</label>
+                    <div class="controls">
+                        <input type="text" id="inputUserName" placeholder="">
+                        <span class="help-inline">（5-20位字母、数字或下划线组合，首字符必须为字母。）</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">
+                        密码</label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword" placeholder="">
+                        <span class="help-inline">(6-20位字符数字组合)</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPasswordConfirm">
+                        再次输入密码</label>
+                    <div class="controls">
+                        <input type="password" id="inputPasswordConfirm" placeholder="">
+                        <span class="help-inline">(确保密码输入正确)</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">
+                        邮箱</label>
+                    <div class="controls">
+                        <input type="password" id="inputEmail" placeholder="">
+                        <span class="help-inline">(填写正确的邮箱地址, 忘记密码时可以轻松找回)</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputMobile">
+                        手机号码</label>
+                    <div class="controls">
+                        <input type="password" id="inputMobile" placeholder="">
+                        <span class="help-inline">(方便我们发送时跟您联系)</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputVerifyCode">
+                        验证码</label>
+                    <div class="controls">
+                        <input type="password" id="inputVerifyCode" class="span1" placeholder="">
+                        <span class="help-inline"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            已经阅读 <a href="#">使用协议</a>
+                        </label>
+                        <button type="submit" class="btn">
+                            注册</button>
+                    </div>
+                </div>
+                </form>
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+    <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

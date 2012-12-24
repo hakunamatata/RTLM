@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.SessionState;
+using DTcms.Common;
+using RTLM;;
+
+namespace RTLM.Web.api.httpHandlers
+{
+    /// <summary>
+    /// userlogin 的摘要说明
+    /// </summary>
+    public class userlogin : IHttpHandler, IRequiresSessionState
+    {
+
+        public void ProcessRequest(HttpContext context)
+        {
+            string action = DTRequest.GetQueryString("action");
+            switch (action)
+            {
+                case "usernamecheck": //用户名检测
+                    break;
+                case "emailcheck": //用户名检测
+                    break;
+
+                case "mobilecheck": //用户名检测
+                    break;
+
+                case "register": //用户名检测
+                    break;
+
+
+            }
+        }
+
+        #region 检测用户名是否存在
+        private string user_name_check(string username)
+        {
+            string output = string.Empty;
+            CCRM.BLL.Consumer bll_consumer = new CCRM.BLL.Consumer();
+            if (bll_consumer.IsExistUserName(username) == 1)
+            {
+
+            }
+            else
+            {
+
+            }
+            return output;
+        }
+        #endregion
+
+        #region 检测邮箱是否存在
+        private string email_check(string username)
+        {
+            string output = string.Empty;
+            CCRM.BLL.Consumer bll_consumer = new CCRM.BLL.Consumer();
+            if (bll_consumer.IsExistEmail(username) == 1)
+            {
+
+            }
+            else
+            {
+
+            }
+            return output;
+        }
+        #endregion
+
+        #region 检测手机号是否存在
+        private string mobil_check(string username)
+        {
+            string output = string.Empty;
+            CCRM.BLL.Consumer bll_consumer = new CCRM.BLL.Consumer();
+            if (bll_consumer.IsExistMobile(username) == 1)
+            {
+
+            }
+            else
+            {
+
+            }
+            return output;
+        }
+        #endregion
+
+        #region 开始注册
+        private string register_start(string username)
+        {
+            string output = string.Empty;
+            CCRM.BLL.Consumer bll_consumer = new CCRM.BLL.Consumer();
+            return output;
+        }
+        #endregion
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+}

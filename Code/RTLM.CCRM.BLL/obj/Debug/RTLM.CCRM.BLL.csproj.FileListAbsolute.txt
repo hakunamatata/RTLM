@@ -10,3 +10,14 @@ C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.pdb
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\DTcms.DBUtility.pdb
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.csprojResolveAssemblyReference.cache
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\log4net.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\DTcms.DBUtility.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\DTcms.DBUtility.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.pdb
