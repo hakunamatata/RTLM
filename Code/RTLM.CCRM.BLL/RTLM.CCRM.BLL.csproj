@@ -49,10 +49,6 @@
     <Compile Include="consumer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTcms.DBUtility\DTcms.DBUtility.csproj">
-      <Project>{E2C9435B-CB68-465A-BDF9-333F2D75E81B}</Project>
-      <Name>DTcms.DBUtility</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RTLM.CCRM.DAL\RTLM.CCRM.DAL.csproj">
       <Project>{BC140666-CAF4-466D-A45D-2A49970CF5AE}</Project>
       <Name>RTLM.CCRM.DAL</Name>

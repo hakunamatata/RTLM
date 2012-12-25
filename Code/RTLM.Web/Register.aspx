@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainframe.Master" AutoEventWireup="true"
-    CodeBehind="Register.aspx.cs" Inherits="DTcms.Web.Register" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainframe.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Register" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

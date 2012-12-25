@@ -21,3 +21,12 @@ C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.C
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.dll
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.pdb
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.pdb
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.dll
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.BLL.pdb
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.dll
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.dll
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.DAL.pdb
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.dll
