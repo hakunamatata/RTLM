@@ -6,9 +6,9 @@
     <title>页面模板</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="js/rtlm.common.js"></script>
     <style>
-        body
-        {
+        body {
             margin-top: 60px;
         }
     </style>
@@ -22,22 +22,23 @@
             <div class="container">
                 <a class="brand" href="#">Rtlm Client</a>
                 <ul class="nav">
-                    <li><a href="Default.aspx">首页</a></li>
-                    <li><a href="#">我要买</a></li>
-                    <li><a href="#">我的订单</a></li>
+                    <li id="nav_home"><a href="Default.aspx">首页</a></li>
+                    <li id="nav_wanna_buy"><a href="#">我要买</a></li>
+                    <li id="nav_orders"><a href="#">我的订单</a></li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li><a href="Login.aspx">登陆</a></li>
-                    <li class="active"><a href="Register.aspx">注册</a></li>
+                    <li id="nav_login"><a href="Login.aspx">登陆</a></li>
+                    <li id="nav_register"><a href="Register.aspx">注册</a></li>
+                    <%--<li class="active"><a href="Register.aspx">注册</a></li>--%>
                 </ul>
                 <!--<ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">我的帐号
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">管理帐号</a></li>
-                            <li><a href="#">退出</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+                </li>
                 </ul>-->
             </div>
         </div>
@@ -111,8 +112,17 @@
     </form>
     <footer>
         <p>&copy; Company 2012</p>
-      </footer>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </footer>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+    <script>
+        navigationChange();
+    </script>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderFoot" runat="server">
+    </asp:ContentPlaceHolder>
+
 </body>
 </html>
