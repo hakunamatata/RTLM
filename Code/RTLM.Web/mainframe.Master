@@ -6,12 +6,13 @@
     <title>页面模板</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script type="text/javascript" src="js/rtlm.common.js"></script>
     <style>
-        body {
+        body
+        {
             margin-top: 60px;
         }
     </style>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -110,19 +111,11 @@
         </div>
     </div>
     </form>
-    <footer>
+
         <p>&copy; Company 2012</p>
-    </footer>
+
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-
-    <script>
-        navigationChange();
-    </script>
-
-    <asp:ContentPlaceHolder ID="ContentPlaceHolderFoot" runat="server">
-    </asp:ContentPlaceHolder>
-
+    <script type="text/javascript" src="js/rtlm.common.js"></script>
 </body>
 </html>

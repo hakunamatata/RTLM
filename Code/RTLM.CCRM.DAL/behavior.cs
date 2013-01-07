@@ -27,7 +27,7 @@ namespace RTLM.CCRM.DAL
 
         #endregion
 
-        public void Insert(int parm_bhvr_id, int parm_csmr_id, string parm_csmr_name, string parm_csmr_cellphone, string parm_csmr_destination, decimal parm_csmr_loc_x, decimal parm_csmr_loc_y, int parm_cstmr_id, DateTime parm_bhvr_date, string parm_goods_name, decimal? parm_csm_amount, decimal? parm_tip_amount, int? parm_related_salesman, int parm_bhvr_state, int? parm_is_failed, string parm_failed_reason)
+        public void Insert(Guid parm_bhvr_id, Guid parm_csmr_id, string parm_csmr_name, string parm_csmr_cellphone, string parm_csmr_destination, decimal parm_csmr_loc_x, decimal parm_csmr_loc_y, Guid parm_cstmr_id, DateTime parm_bhvr_date, string parm_goods_name, decimal? parm_csm_amount, decimal? parm_tip_amount, int? parm_related_salesman, int parm_bhvr_state, int? parm_is_failed, string parm_failed_reason)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace RTLM.CCRM.DAL
             }
         }
 
-        public void Update(int parm_csmr_id, string parm_csmr_name, string parm_csmr_cellphone, string parm_csmr_destination, decimal parm_csmr_loc_x, decimal parm_csmr_loc_y, int parm_cstmr_id, DateTime parm_bhvr_date, string parm_goods_name, decimal? parm_csm_amount, decimal? parm_tip_amount, int? parm_related_salesman, int parm_bhvr_state, int? parm_is_failed, string parm_failed_reason, int parm_bhvr_id)
+        public void Update(Guid parm_csmr_id, string parm_csmr_name, string parm_csmr_cellphone, string parm_csmr_destination, decimal parm_csmr_loc_x, decimal parm_csmr_loc_y, Guid parm_cstmr_id, DateTime parm_bhvr_date, string parm_goods_name, decimal? parm_csm_amount, decimal? parm_tip_amount, int? parm_related_salesman, int parm_bhvr_state, int? parm_is_failed, string parm_failed_reason, Guid parm_bhvr_id)
         {
             try
             {

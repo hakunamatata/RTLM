@@ -10,14 +10,14 @@ namespace RTLM.CCRM.Model
     public class Behavior
     {
 
-        private int _bhvr_id;
-        private int _csmr_id;
+        private Guid _bhvr_id;
+        private Guid _csmr_id;
         private string _csmr_name;
         private string _csmr_cellphone;
         private string _csmr_destination;
         private decimal _csmr_loc_x;
         private decimal _csmr_loc_y;
-        private int _cstmr_id;
+        private Guid _cstmr_id;
         private DateTime _bhvr_date;
         private string _goods_name;
         private decimal? _csm_amount;
@@ -27,12 +27,12 @@ namespace RTLM.CCRM.Model
         private int? _is_failed;
         private string _failed_reason;
 
-        public int ID
+        public Guid ID
         {
             get { return _bhvr_id; }
             set { _bhvr_id = value; }
         }
-        public int ConsumerID
+        public Guid ConsumerID
         {
             get { return _csmr_id; }
             set { _csmr_id = value; }
@@ -62,7 +62,7 @@ namespace RTLM.CCRM.Model
             get { return _csmr_loc_y; }
             set { _csmr_loc_y = value; }
         }
-        public int CostomerID
+        public Guid CostomerID
         {
             get { return _cstmr_id; }
             set { _cstmr_id = value; }

@@ -7,14 +7,13 @@ using log4net;
 
 namespace RTLM.CCRM.BLL
 {
-    public class Customer
+    public class Customer:Users
     {
         private ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public Model.Customer GetModel(string id)
+        public Model.Customer GetModel(Guid id)
         {
-            Users bll_user = new Users();
             Model.Customer model_customer = new Model.Customer();
-            Model.User model_user = bll_user.GetModel(id);
+            Model.User model_user = base.GetModel(id);
 
             if (model_user == null)
             {
@@ -41,27 +40,18 @@ namespace RTLM.CCRM.BLL
             foreach (DataRow dr in tb_customer.Rows)
             {
 
-                model_customer.Address = model_user.Address;
-                model_customer.Amount = model_user.Amount;
                 model_customer.Avatar = model_user.Avatar;
-                model_customer.Birthday = model_user.Birthday;
                 model_customer.Email = model_user.Email;
-                model_customer.Exp = model_user.Exp;
                 model_customer.GroupID = model_user.GroupID;
                 model_customer.ID = model_user.ID;
-                model_customer.IsLock = model_user.IsLock;
                 model_customer.Mobile = model_user.Mobile;
                 model_customer.NickName = model_user.NickName;
                 model_customer.Password = model_user.Password;
-                model_customer.Point = model_user.Point;
                 model_customer.QQ = model_user.QQ;
-                model_customer.RegIP = model_user.RegIP;
-                model_customer.RegTime = model_user.RegTime;
                 model_customer.SafeAnswer = model_user.SafeAnswer;
                 model_customer.SafeQuestion = model_user.SafeQuestion;
-                model_customer.Sex = model_user.Sex;
-                model_customer.Telphone = model_user.Telphone;
-                model_customer.UserName = model_user.UserName;
+                model_customer.Gender = model_user.Gender;
+                model_customer.UserType = model_user.UserType;
 
                 model_customer.StoreName = null_check(dr["store_name"]) ? null : dr["store_name"].ToString();
                 model_customer.City = null_check(dr["city"]) ? null : (int?)Convert.ToInt32(dr["city"]);
@@ -84,7 +74,7 @@ namespace RTLM.CCRM.BLL
         }
 
 
-        public bool IsCustomerExist(string id)
+        public bool IsCustomerExist(Guid id)
         {
             return DAL.Customer.Exist(id) == 1;
         }
@@ -98,10 +88,11 @@ namespace RTLM.CCRM.BLL
         public int CreateCustomer(Model.Customer Customer)
         {
             // 1: 用户已存在
-            if (IsCustomerExist(Customer.ID.ToString()) || IsCustomerExist(Customer.Email) || IsCustomerExist(Customer.UserName) || IsCustomerExist(Customer.Mobile))
+            if (IsEmialExist(Customer.Email) || IsMobileExist(Customer.Mobile))
             {
                 return 0;
             }
+
             DbHelper db = new DbHelper();
 
             try
@@ -110,26 +101,17 @@ namespace RTLM.CCRM.BLL
                 DAL.User dal_user = new DAL.User(db);
                 dal_user.Insert(
                             Customer.ID,
-                            Customer.GroupID,
-                            Customer.UserName,
-                            Customer.Password,
                             Customer.Email,
+                            Customer.Password,
                             Customer.NickName,
-                            Customer.Avatar,
-                            Customer.Sex,
-                            Customer.Birthday,
-                            Customer.Telphone,
                             Customer.Mobile,
-                            Customer.QQ,
-                            Customer.Address,
+                            Customer.Gender,
+                            Customer.GroupID,
+                            Customer.Avatar,
                             Customer.SafeQuestion,
                             Customer.SafeAnswer,
-                            Customer.Amount,
-                            Customer.Point,
-                            Customer.Exp,
-                            Customer.IsLock ? 1 : 0,
-                            Customer.RegTime,
-                            Customer.RegIP
+                            Customer.QQ,
+                            Customer.UserType
                            );
                 DAL.Customer dal_customer = new DAL.Customer(db);
                 dal_customer.Insert(

@@ -7,14 +7,14 @@ using log4net;
 
 namespace RTLM.CCRM.BLL
 {
-    public class Consumer
+    public class Consumer : Users
     {
         private ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public Model.Consumer GetModel(string id)
+        public Model.Consumer GetModel(Guid id)
         {
-            Users bll_user = new Users();
+            
             Model.Consumer model_consumer = new Model.Consumer();
-            Model.User model_user = bll_user.GetModel(id);
+            Model.User model_user = base.GetModel(id);
 
             if (model_user == null)
             {
@@ -41,27 +41,18 @@ namespace RTLM.CCRM.BLL
             foreach (DataRow dr in tb_customer.Rows)
             {
 
-                model_consumer.Address = model_user.Address;
-                model_consumer.Amount = model_user.Amount;
                 model_consumer.Avatar = model_user.Avatar;
-                model_consumer.Birthday = model_user.Birthday;
                 model_consumer.Email = model_user.Email;
-                model_consumer.Exp = model_user.Exp;
                 model_consumer.GroupID = model_user.GroupID;
                 model_consumer.ID = model_user.ID;
-                model_consumer.IsLock = model_user.IsLock;
                 model_consumer.Mobile = model_user.Mobile;
                 model_consumer.NickName = model_user.NickName;
                 model_consumer.Password = model_user.Password;
-                model_consumer.Point = model_user.Point;
                 model_consumer.QQ = model_user.QQ;
-                model_consumer.RegIP = model_user.RegIP;
-                model_consumer.RegTime = model_user.RegTime;
                 model_consumer.SafeAnswer = model_user.SafeAnswer;
                 model_consumer.SafeQuestion = model_user.SafeQuestion;
-                model_consumer.Sex = model_user.Sex;
-                model_consumer.Telphone = model_user.Telphone;
-                model_consumer.UserName = model_user.UserName;
+                model_consumer.Gender = model_user.Gender;
+                model_consumer.UserType = model_user.UserType;
 
                 model_consumer.RealName = null_check(dr["real_name"]) ? null : dr["real_name"].ToString();
                 model_consumer.City = null_check(dr["city"]) ? null : (int?)Convert.ToInt32(dr["city"]);
@@ -83,7 +74,7 @@ namespace RTLM.CCRM.BLL
 
 
 
-        public bool IsConsumerExist(string id)
+        public bool IsConsumerExist(Guid id)
         {
             return DAL.Consumer.Exist(id) == 1;
         }
@@ -97,7 +88,8 @@ namespace RTLM.CCRM.BLL
         public int CreateCustomer(Model.Consumer Consumer)
         {
             // 1: 用户已存在
-            if (IsConsumerExist(Consumer.ID.ToString()) || IsConsumerExist(Consumer.Email) || IsConsumerExist(Consumer.UserName) || IsConsumerExist(Consumer.Mobile))
+            //BLL.Users bll_user = new 
+            if (IsEmialExist(Consumer.Email) || IsMobileExist(Consumer.Mobile))
             {
                 return 0;
             }
@@ -109,26 +101,17 @@ namespace RTLM.CCRM.BLL
                 DAL.User dal_user = new DAL.User(db);
                 dal_user.Insert(
                             Consumer.ID,
-                            Consumer.GroupID,
-                            Consumer.UserName,
-                            Consumer.Password,
                             Consumer.Email,
+                            Consumer.Password,
                             Consumer.NickName,
-                            Consumer.Avatar,
-                            Consumer.Sex,
-                            Consumer.Birthday,
-                            Consumer.Telphone,
                             Consumer.Mobile,
-                            Consumer.QQ,
-                            Consumer.Address,
+                            Consumer.Gender,
+                            Consumer.GroupID,
+                            Consumer.Avatar,
                             Consumer.SafeQuestion,
                             Consumer.SafeAnswer,
-                            Consumer.Amount,
-                            Consumer.Point,
-                            Consumer.Exp,
-                            Consumer.IsLock ? 1 : 0,
-                            Consumer.RegTime,
-                            Consumer.RegIP
+                            Consumer.QQ,
+                            Consumer.UserType
                            );
                 DAL.Consumer dal_consumer = new DAL.Consumer(db);
                 dal_consumer.Insert(
@@ -140,7 +123,7 @@ namespace RTLM.CCRM.BLL
                                     Consumer.State,
                                     Consumer.LastOrderDate
                                    );
-                                  
+
                 db.CommitTransaction();
                 return 1; // 执行成功。
             }
@@ -157,35 +140,15 @@ namespace RTLM.CCRM.BLL
         }
 
 
-        /// <summary>
-        /// 用户名是否存在
-        /// </summary>
-        /// <param name="username"></param>
-        /// <returns></returns>
-        public int IsExistUserName(string username)
-        {
-            return 1;
-        }
-
-        /// <summary>
-        /// 邮箱是否存在
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public int IsExistEmail(string email)
-        {
-            return 1;
-        }
-
-        /// <summary>
-        /// 手机号码是否存在
-        /// </summary>
-        /// <param name="mobile"></param>
-        /// <returns></returns>
-        public int IsExistMobile(string mobile)
-        {
-            return 1;
-        }
+        ///// <summary>
+        ///// 用户名是否存在
+        ///// </summary>
+        ///// <param name="username"></param>
+        ///// <returns></returns>
+        //public int IsExistUserName(string username)
+        //{
+        //    return 1;
+        //}
 
     }
 }

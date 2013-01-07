@@ -26,7 +26,7 @@ namespace RTLM.CCRM.DAL{
 
         #endregion
 
-        public void Insert(int parm_cid, string parm_real_name, int? parm_city, DateTime? parm_first_order_date, string parm_frequent_area, int? parm_personal_state, DateTime? parm_last_order_date)
+        public void Insert(Guid parm_cid, string parm_real_name, int? parm_city, DateTime? parm_first_order_date, string parm_frequent_area, int? parm_personal_state, DateTime? parm_last_order_date)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace RTLM.CCRM.DAL{
             }
         }
 
-        public void DeleteBy(int parm_cid)
+        public void DeleteBy(Guid parm_cid)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace RTLM.CCRM.DAL{
             }
         }
 
-        public void Update(string parm_real_name, int? parm_city, DateTime? parm_first_order_date, string parm_frequent_area, int? parm_personal_state, DateTime? parm_last_order_date, int parm_cid)
+        public void Update(string parm_real_name, int? parm_city, DateTime? parm_first_order_date, string parm_frequent_area, int? parm_personal_state, DateTime? parm_last_order_date, Guid parm_cid)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace RTLM.CCRM.DAL{
         }
 
 
-        public DataTable GetDataBy(string id)
+        public DataTable GetDataBy(Guid id)
         {
             try
             {
@@ -174,7 +174,7 @@ namespace RTLM.CCRM.DAL{
         /// </summary>
         /// <param name="param_id">用户编号|email|手机|用户名</param>
         /// <returns></returns>
-        public static int Exist(string param_id)
+        public static int Exist(Guid param_id)
         {
             DbHelper db = new DbHelper();
             try

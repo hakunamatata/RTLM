@@ -10,7 +10,7 @@ namespace RTLM.CCRM.BLL
     public class Users
     {
         private ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        public Model.User GetModel(string id)
+        public Model.User GetModel(Guid id)
         {
             //Model.Customer = new Model.Customer();
             DbHelper db = new DbHelper();
@@ -33,27 +33,18 @@ namespace RTLM.CCRM.BLL
             }
             foreach (DataRow dr in tb_user.Rows)
             {
-                model_user.Address = null_check(dr["address"]) ? null : dr["address"].ToString();
-                model_user.Amount = null_check(dr["amount"]) ? null : (decimal?)Convert.ToDecimal(dr["amount"]);
                 model_user.Avatar = null_check(dr["avatar"]) ? null : dr["avatar"].ToString();
-                model_user.Birthday = null_check(dr["birthday"]) ? null : (DateTime?)Convert.ToDateTime(dr["Birthday"]);
                 model_user.Email = null_check(dr["email"]) ? null : dr["email"].ToString();
-                model_user.Exp = null_check(dr["exp"]) ? null : (int?)Convert.ToInt32(dr["exp"]);
-                model_user.GroupID = Convert.ToInt32(dr["group_id"]);
-                model_user.ID = Convert.ToInt32(dr["id"]);
-                model_user.IsLock = null_check(dr["is_lock"]) ? false : Convert.ToBoolean(dr["is_lock"]);
+                model_user.GroupID = Guid.Parse(dr["group_id"].ToString());
+                model_user.ID = Guid.Parse(dr["id"].ToString());
                 model_user.Mobile = null_check(dr["mobile"]) ? null : dr["mobile"].ToString();
                 model_user.NickName = null_check(dr["nick_name"]) ? null : dr["nick_name"].ToString();
                 model_user.Password = dr["password"].ToString();
-                model_user.Point = null_check(dr["point"]) ? null : (int?)Convert.ToInt32(dr["point"]);
                 model_user.QQ = null_check(dr["qq"]) ? null : dr["qq"].ToString();
-                model_user.RegIP = null_check(dr["reg_ip"]) ? null : dr["reg_ip"].ToString();
-                model_user.RegTime = null_check(dr["reg_time"]) ? null : (DateTime?)Convert.ToDateTime(dr["reg_time"]);
                 model_user.SafeAnswer = null_check(dr["safe_answer"]) ? null : dr["safe_answer"].ToString();
                 model_user.SafeQuestion = null_check(dr["safe_question"]) ? null : dr["safe_question"].ToString();
-                model_user.Sex = null_check(dr["sex"]) ? null : dr["sex"].ToString();
-                model_user.Telphone = null_check(dr["telphone"]) ? null : dr["telphone"].ToString();
-                model_user.UserName = dr["user_name"].ToString();
+                model_user.Gender = Convert.ToInt16(dr["gender"]);
+                model_user.UserType = Convert.ToInt16(dr["user_type"]);
             }
 
             return model_user;
@@ -64,5 +55,27 @@ namespace RTLM.CCRM.BLL
             return (dr == DBNull.Value || dr == null || dr.ToString() == string.Empty);
         }
 
+
+        /// <summary>
+        /// 邮箱是否存在
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool IsEmialExist(string email)
+        {
+            DAL.User dal_user = new DAL.User();
+            return dal_user.IsEmailExist(email);
+        }
+
+        /// <summary>
+        /// 手机是否已经使用
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        public bool IsMobileExist(string mobile)
+        {
+            DAL.User dal_user = new DAL.User();
+            return dal_user.IsMobileExist(mobile);
+        }
     }
 }

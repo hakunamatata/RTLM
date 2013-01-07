@@ -27,7 +27,7 @@ namespace RTLM.CCRM.DAL
 
         #endregion
 
-        public void Insert(int parm_cid, string parm_store_name, int? parm_city, string parm_frequent_area, int? parm_store_state, DateTime? parm_last_order_date, DateTime? parm_off_work_time, decimal? parm_frequent_loc_x, decimal? parm_frequent_loc_y)
+        public void Insert(Guid parm_cid, string parm_store_name, int? parm_city, string parm_frequent_area, int? parm_store_state, DateTime? parm_last_order_date, DateTime? parm_off_work_time, decimal? parm_frequent_loc_x, decimal? parm_frequent_loc_y)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace RTLM.CCRM.DAL
             }
         }
 
-        public void DeleteBy(int parm_cid)
+        public void DeleteBy(Guid parm_cid)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace RTLM.CCRM.DAL
             }
         }
 
-        public void Update(string parm_store_name, int? parm_city, string parm_frequent_area, int? parm_store_state, DateTime? parm_last_order_date, DateTime? parm_off_work_time, decimal? parm_frequent_loc_x, decimal? parm_frequent_loc_y, int parm_cid)
+        public void Update(string parm_store_name, int? parm_city, string parm_frequent_area, int? parm_store_state, DateTime? parm_last_order_date, DateTime? parm_off_work_time, decimal? parm_frequent_loc_x, decimal? parm_frequent_loc_y, Guid parm_cid)
         {
             try
             {
@@ -163,7 +163,7 @@ namespace RTLM.CCRM.DAL
         }
 
 
-        public DataTable GetDataBy(string id)
+        public DataTable GetDataBy(Guid id)
         {
             try
             {
@@ -195,7 +195,7 @@ namespace RTLM.CCRM.DAL
         /// </summary>
         /// <param name="param_id">用户编号|email|手机|用户名</param>
         /// <returns></returns>
-        public static int Exist(string param_id)
+        public static int Exist(Guid param_id)
         {
             DbHelper db = new DbHelper();
             try
