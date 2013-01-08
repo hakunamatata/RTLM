@@ -165,8 +165,16 @@
         */
         isEmailAvailable: function (email) {
             var patrn = /^[_a-z0-9]+@([_a-z0-9]+\.)+[a-z0-9]{2,3}$/;
-            if (patrn.exec(email.value)) 
-                validateState(email, "success");
+            if (patrn.exec(email.value)){
+                $.getJSON(
+                    'api/handlers/users.ashx?action=valid_email&p1=' + email.value,
+                    function(data){
+                        if (data.success)
+                            validateState(email, "success");
+                    }
+                )
+                
+            }
             else 
                 validateState(email, "error");
         },

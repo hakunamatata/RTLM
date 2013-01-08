@@ -10,6 +10,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RTLM.Web", "RTLM.Web\", "{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}|RTLM.Utility.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/RTLM.Web"
 		Debug.AspNetCompiler.PhysicalPath = "RTLM.Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RTLM.Web\"
@@ -25,7 +26,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RTLM.Web", "RTLM.Web\", "{1
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "22079"
+		VWDVirtualPath = "/"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Utility", "RTLM.Utility\RTLM.Utility.csproj", "{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
