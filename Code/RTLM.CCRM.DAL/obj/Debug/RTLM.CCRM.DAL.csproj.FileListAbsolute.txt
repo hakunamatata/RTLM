@@ -7,9 +7,6 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.pdb
 C:\Github\RTLM\Code\RTLM.CCRM.DAL\bin\Debug\RTLM.CCRM.DAL.dll
 C:\Github\RTLM\Code\RTLM.CCRM.DAL\bin\Debug\RTLM.CCRM.DAL.pdb
-C:\Github\RTLM\Code\RTLM.CCRM.DAL\bin\Debug\DTcms.DBUtility.dll
-C:\Github\RTLM\Code\RTLM.CCRM.DAL\bin\Debug\DTcms.DBUtility.pdb
-C:\Github\RTLM\Code\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.csprojResolveAssemblyReference.cache
 C:\Github\RTLM\Code\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.dll
 C:\Github\RTLM\Code\RTLM.CCRM.DAL\obj\Debug\RTLM.CCRM.DAL.pdb
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.DAL\bin\Debug\RTLM.CCRM.DAL.dll
