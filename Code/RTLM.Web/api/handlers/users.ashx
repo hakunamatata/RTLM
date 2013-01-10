@@ -1,57 +1,87 @@
-﻿<%@ WebHandler Language="C#" Class="users" %>
+﻿<%@ WebHandler Language="C#" Class="RTLM.Web.Api.Handler.users" %>
 
 using System;
 using System.Web;
 using System.Runtime.Serialization;
-using RTLM.CCRM.DAL;
-using RTLM.Utility;
+using RTLM;
 using LitJson;
-public class users : IHttpHandler
+
+namespace RTLM.Web.Api.Handler
 {
-
-    public void ProcessRequest(HttpContext context)
+    public class users : IHttpHandler
     {
-        context.Response.ContentType = "text/plain";
 
-        System.Collections.Specialized.NameValueCollection Parameters = context.Request.QueryString;
-
-        for (int i = 0; i < Parameters.Count; i++)
+        public void ProcessRequest(HttpContext context)
         {
-            string[] values = Parameters.GetValues(i);
-            if (values.Length == 0 || string.IsNullOrEmpty(values[0]))
+            context.Response.ContentType = "text/plain";
+
+            System.Collections.Specialized.NameValueCollection Parameters = context.Request.QueryString;
+
+            for (int i = 0; i < Parameters.Count; i++)
             {
-                context.Response.Write(Utility.ReturnFailedMessage("传递的参数不全。"));
-                return;
+                string[] values = Parameters.GetValues(i);
+                if (values.Length == 0 || string.IsNullOrEmpty(values[0]))
+                {
+                    context.Response.Write(Utility.ReturnFailedMessage("传递的参数不全。"));
+                    return;
+                }
+            }
+
+            string action = context.Request.QueryString["action"];
+            switch (action)
+            {
+                case "valid_email":
+                    string email = context.Request.QueryString["p1"];
+                    if (!valid_email(email))
+                        context.Response.Write(Utility.ReturnSuccessMessage("邮箱验证成功。"));
+                    else
+                        context.Response.Write(Utility.ReturnFailedMessage("邮箱验证失败。"));
+                    break;
+                    
+                case "valid_mobile":
+                    string mobile = context.Request.QueryString["p1"];
+                    if (!valid_mobile(mobile))
+                        context.Response.Write(Utility.ReturnSuccessMessage("手机验证成功。"));
+                    else
+                        context.Response.Write(Utility.ReturnSuccessMessage("手机验证失败。"));
+                    break;
+                    
+                default:
+                    break;
+            }
+
+        }
+
+        
+        /// <summary>
+        /// 邮箱是否存在
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        bool valid_email(string email)
+        {
+            CCRM.DAL.User dal_user = new CCRM.DAL.User();
+            return dal_user.IsEmailExist(email);
+        }
+
+        /// <summary>
+        /// 手机号码是否存在
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
+        bool valid_mobile(string mobile)
+        {
+            CCRM.DAL.User dal_user = new CCRM.DAL.User();
+            return dal_user.IsMobileExist(mobile);
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
             }
         }
 
-        string action = context.Request.QueryString["action"];
-        switch (action)
-        {
-            case "valid_email":
-                string email = context.Request.QueryString["p1"];
-                if (valid_email(email))
-                    context.Response.Write(Utility.ReturnSuccessMessage("邮箱验证成功。"));
-                else
-                    context.Response.Write(Utility.ReturnFailedMessage("邮箱验证失败。"));
-                break;
-            default:
-                break;
-        }
-
     }
-
-    bool valid_email(string email)
-    {
-        return true;
-    }
-
-    public bool IsReusable
-    {
-        get
-        {
-            return false;
-        }
-    }
-
 }

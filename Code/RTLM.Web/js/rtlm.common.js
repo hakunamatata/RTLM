@@ -80,6 +80,38 @@
 })(RTLM.common);
     
 
+  /*
+    包体说明：  
+        本包主要为控制页面导航控制其样式
+*/  
+(function(scope, $){
+    
+    var $navigator = new Class;
+    $navigator.extend({
+
+//         enumPageAction: {
+//            home: "nav_home",            //导航之首页
+//            register: "nav_register",    //导航之注册
+//            login: "nav_login",           //导航之登陆
+//            orders: "nav_orders",         //导航之我的订单
+//            buy: "nav_buy"               //导航之我要买
+//        },
+
+        init: function(){
+            
+        },
+
+        active:function(active){
+             $('#' + active).addClass("active");
+        }
+
+    });
+
+    scope.navigator = new $navigator;
+
+})(RTLM.common, jQuery);
+
+
 /*
     包体说明：
         
@@ -91,17 +123,9 @@
 
 */
 
-
 (function (scope, $) {
 
     var $register = new Class,
-        enumAction = {
-            home: "nav_home",            //导航之首页
-            register: "nav_register",    //导航之注册
-            login: "nav_login",           //导航之登陆
-            orders: "nav_orders",         //导航之我的订单
-            buy: "nav_buy"               //导航之我要买
-        },
 
         /*
         *   方法：控件状态却换
@@ -123,10 +147,11 @@
             }
         };
 
+
+    $register.extend({
     /*
         定义实例方法
     */
-    $register.extend({
 
         //构造实例并且初始化pageAction为首页
         init: function () {
@@ -137,14 +162,10 @@
                 repeat = $('#txtboxRepeat'),
                 that = this;
 
-            this.pageAction = enumAction.home;
-            
             email.blur(function(){ that.isEmailAvailable(email[0]); });
             mobile.blur(function(){ that.isMobileAvailable(mobile[0]); });
             password.blur(function(){ that.isPasswordAvailable(password[0]); });
             repeat.blur(function(){ that.isPasswordRepeat(password[0], repeat[0]); });
-            //this.isMobileAvailable(mobile);
-            //this.isPasswordAvailable(password);
 
         },
 
@@ -173,7 +194,6 @@
                             validateState(email, "success");
                     }
                 )
-                
             }
             else 
                 validateState(email, "error");
@@ -199,8 +219,15 @@
         */
         isMobileAvailable: function (mobile) {
             var patrn = /^(\w){6,20}$/;
-            if (patrn.exec(mobile.value)) 
-                validateState(mobile, "success");
+            if (patrn.exec(mobile.value)){
+             $.getJSON(
+                    'api/handlers/users.ashx?action=valid_mobile&p1=' + mobile.value,
+                    function(data){
+                        if (data.success)
+                            validateState(mobile, "success");
+                    }
+                )
+            }
             else 
                 validateState(mobile, "error");
             

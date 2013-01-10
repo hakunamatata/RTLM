@@ -217,18 +217,7 @@ namespace RTLM.CCRM.DAL
             try
             {
                 string Query = @"SELECT 
-				uid,
-				email,
-				password,
-				nick_name,
-				mobile,
-				gender,
-				group_id,
-				avatar,
-				safe_question,
-				safe_answer,
-				qq,
-				user_type
+				COUNT(*)
 				FROM ccrm_users
                 WHERE uid=@uid";
                 db.AddParameter(new SqlParameter("@uid", user_id));
@@ -251,18 +240,7 @@ namespace RTLM.CCRM.DAL
             try
             {
                 string Query = @"SELECT 
-				uid,
-				email,
-				password,
-				nick_name,
-				mobile,
-				gender,
-				group_id,
-				avatar,
-				safe_question,
-				safe_answer,
-				qq,
-				user_type
+				COUNT(*)
 				FROM ccrm_users
                 WHERE email=@email";
                 db.AddParameter(new SqlParameter("@email", parm_email));
@@ -284,21 +262,10 @@ namespace RTLM.CCRM.DAL
             try
             {
                 string Query = @"SELECT 
-				uid,
-				email,
-				password,
-				nick_name,
-				mobile,
-				gender,
-				group_id,
-				avatar,
-				safe_question,
-				safe_answer,
-				qq,
-				user_type
+				COUNT(*)
 				FROM ccrm_users
                 WHERE mobile=@mobile";
-                db.AddParameter(new SqlParameter("@email", parm_mobile));
+                db.AddParameter(new SqlParameter("@mobile", parm_mobile));
                 return (int)db.ExecuteScalar(Query, connState) == 1;
             }
             catch (Exception ex)

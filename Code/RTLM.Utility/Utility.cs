@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LitJson;
 
-namespace RTLM.Utility
+namespace RTLM
 {
     public class Utility
     {

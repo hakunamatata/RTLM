@@ -44,7 +44,7 @@ namespace RTLM.CCRM.BLL
                 model_user.SafeAnswer = null_check(dr["safe_answer"]) ? null : dr["safe_answer"].ToString();
                 model_user.SafeQuestion = null_check(dr["safe_question"]) ? null : dr["safe_question"].ToString();
                 model_user.Gender = Convert.ToInt16(dr["gender"]);
-                model_user.UserType = Convert.ToInt16(dr["user_type"]);
+                model_user.Type = Convert.ToInt16(dr["user_type"]);
             }
 
             return model_user;

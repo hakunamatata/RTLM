@@ -12,19 +12,17 @@
             margin-top: 60px;
         }
     </style>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
                 <a class="brand" href="#">Rtlm Client</a>
                 <ul class="nav">
                     <li id="nav_home"><a href="Default.aspx">首页</a></li>
-                    <li id="nav_wanna_buy"><a href="#">我要买</a></li>
+                    <li id="nav_buy"><a href="#">我要买</a></li>
                     <li id="nav_orders"><a href="#">我的订单</a></li>
                 </ul>
                 <ul class="nav pull-right">
@@ -110,12 +108,18 @@
             </asp:ContentPlaceHolder>
         </div>
     </div>
-    </form>
-
-        <p>&copy; Company 2012</p>
-
+    <p>
+        &copy; Company 2012</p>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/rtlm.common.js"></script>
+    <!-- 
+        全局JS
+    -->
+    <script>
+        var navBar = RTLM.common.navigator;
+    </script>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderClientScripts" runat="server">
+    </asp:ContentPlaceHolder>
 </body>
 </html>

@@ -47,5 +47,11 @@ namespace RTLM.CCRM.Model
             get { return _last_order_date; }
             set { _last_order_date = value; }
         }
+
+        public Consumer()
+            : base()
+        {
+
+        }
     }
 }

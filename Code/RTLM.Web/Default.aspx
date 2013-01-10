@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainframe.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainframe.master" AutoEventWireup="true"
+    CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -50,4 +51,9 @@
         </div>
     </div>
     <hr>
+</asp:Content>
+<asp:Content runat="server" ID="ContentClientScripts" ContentPlaceHolderID="ContentPlaceHolderClientScripts">
+<script>
+    navBar.active("nav_home");
+</script>
 </asp:Content>

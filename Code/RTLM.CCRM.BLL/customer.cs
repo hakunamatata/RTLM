@@ -51,7 +51,7 @@ namespace RTLM.CCRM.BLL
                 model_customer.SafeAnswer = model_user.SafeAnswer;
                 model_customer.SafeQuestion = model_user.SafeQuestion;
                 model_customer.Gender = model_user.Gender;
-                model_customer.UserType = model_user.UserType;
+                model_customer.Type = model_user.Type;
 
                 model_customer.StoreName = null_check(dr["store_name"]) ? null : dr["store_name"].ToString();
                 model_customer.City = null_check(dr["city"]) ? null : (int?)Convert.ToInt32(dr["city"]);
@@ -111,7 +111,7 @@ namespace RTLM.CCRM.BLL
                             Customer.SafeQuestion,
                             Customer.SafeAnswer,
                             Customer.QQ,
-                            Customer.UserType
+                            Customer.Type
                            );
                 DAL.Customer dal_customer = new DAL.Customer(db);
                 dal_customer.Insert(

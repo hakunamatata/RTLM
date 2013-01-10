@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="Register.aspx?action=register" id="formRegister">
     <div class="control-group">
         <label class="control-label" for="inputEmail">
             邮箱</label>
@@ -56,4 +56,9 @@
         </div>
     </div>
     </form>
+</asp:Content>
+<asp:Content runat="server" ID="ContentClientScript" ContentPlaceHolderID="ContentPlaceHolderClientScripts">
+    <script>
+        navBar.active("nav_register");
+    </script>
 </asp:Content>

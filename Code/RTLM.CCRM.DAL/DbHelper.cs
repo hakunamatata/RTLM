@@ -41,7 +41,7 @@ namespace RTLM
                     objFactory = OdbcFactory.Instance;
                     break;
                 case Providers.ConfigDefined:
-                    string providername = ConfigurationManager.ConnectionStrings["PFDConnectionString"].ProviderName;
+                    string providername = ConfigurationManager.ConnectionStrings["ConnectionString"].ProviderName;
                     switch (providername)
                     {
                         case "System.Data.SqlClient":
@@ -66,7 +66,7 @@ namespace RTLM
         }
 
         public DbHelper(Providers provider)
-            : this(ConfigurationManager.ConnectionStrings["PFDConnectionString"].ConnectionString, provider)
+            : this(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString, provider)
         {
         }
 
@@ -75,7 +75,7 @@ namespace RTLM
         {
         }
         public DbHelper()
-            : this(ConfigurationManager.ConnectionStrings["PFDConnectionString"].ConnectionString, Providers.ConfigDefined)
+            : this(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString, Providers.ConfigDefined)
         {
         }
 

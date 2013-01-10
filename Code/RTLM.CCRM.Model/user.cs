@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace RTLM.CCRM.Model
 {
 
@@ -15,7 +16,7 @@ namespace RTLM.CCRM.Model
         private string _nick_name;
         private string _mobile;
         private int _gender;
-        private Guid _group_id;
+        private Guid? _group_id;
         private string _avatar;
         private string _safe_question;
         private string _safe_answer;
@@ -25,7 +26,7 @@ namespace RTLM.CCRM.Model
         public Guid ID
         {
             get { return _uid; }
-            set { _uid = value; }
+            private set;
         }
         public string Email
         {
@@ -47,12 +48,12 @@ namespace RTLM.CCRM.Model
             get { return _mobile; }
             set { _mobile = value; }
         }
-        public int Gender
+        public UserSex Gender
         {
-            get { return _gender; }
-            set { _gender = value; }
+            get { return (UserSex)_gender; }
+            set { _gender = Convert.ToInt16(value); }
         }
-        public Guid GroupID
+        public Guid? GroupID
         {
             get { return _group_id; }
             set { _group_id = value; }
@@ -77,10 +78,32 @@ namespace RTLM.CCRM.Model
             get { return _qq; }
             set { _qq = value; }
         }
-        public int UserType
+        public UserType Type
         {
-            get { return _user_type; }
-            set { _user_type = value; }
+            get { return (UserType)_user_type; }
+            set { _user_type = Convert.ToInt16(value); }
         }
+
+
+        public User(string email, string password, string mobile)
+        {
+            this.ID = Guid.NewGuid();
+            this.Email = email;
+            this.Password = 
+            this.Gender = UserSex.保密;
+            this.GroupID = null;
+            this.Type = UserType.消费者;
+
+        }
+    }
+
+    public enum UserType
+    {
+        消费者, 客户
+    }
+
+    public enum UserSex
+    {
+        男, 女, 保密
     }
 }

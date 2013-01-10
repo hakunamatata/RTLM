@@ -10,7 +10,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RTLM.Web", "RTLM.Web\", "{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}|RTLM.Utility.dll;"
+		ProjectReferences = "{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}|RTLM.Utility.dll;{BC140666-CAF4-466D-A45D-2A49970CF5AE}|RTLM.CCRM.DAL.dll;{5D310BE3-5972-4B31-907B-678A324D0660}|RTLM.CCRM.BLL.dll;{30482E8B-44E4-48C3-844E-905AD3740A81}|RTLM.CCRM.Model.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/RTLM.Web"
 		Debug.AspNetCompiler.PhysicalPath = "RTLM.Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RTLM.Web\"

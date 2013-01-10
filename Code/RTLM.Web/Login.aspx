@@ -34,3 +34,8 @@
     </div>
     </form>
 </asp:Content>
+<asp:Content runat="server" ID="ContentClientScripts" ContentPlaceHolderID="ContentPlaceHolderClientScripts">
+<script>
+    navBar.active("nav_login");
+</script>
+</asp:Content>
