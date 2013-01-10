@@ -37,22 +37,22 @@ namespace RTLM.Web.Api.Handler
                     else
                         context.Response.Write(Utility.ReturnFailedMessage("邮箱验证失败。"));
                     break;
-                    
+
                 case "valid_mobile":
                     string mobile = context.Request.QueryString["p1"];
                     if (!valid_mobile(mobile))
                         context.Response.Write(Utility.ReturnSuccessMessage("手机验证成功。"));
                     else
-                        context.Response.Write(Utility.ReturnSuccessMessage("手机验证失败。"));
+                        context.Response.Write(Utility.ReturnFailedMessage("手机验证失败。"));
                     break;
-                    
+
                 default:
                     break;
             }
 
         }
 
-        
+
         /// <summary>
         /// 邮箱是否存在
         /// </summary>
@@ -60,8 +60,15 @@ namespace RTLM.Web.Api.Handler
         /// <returns></returns>
         bool valid_email(string email)
         {
-            CCRM.DAL.User dal_user = new CCRM.DAL.User();
-            return dal_user.IsEmailExist(email);
+            try
+            {
+                CCRM.DAL.User dal_user = new CCRM.DAL.User();
+                return dal_user.IsEmailExist(email);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -71,8 +78,15 @@ namespace RTLM.Web.Api.Handler
         /// <returns></returns>
         bool valid_mobile(string mobile)
         {
-            CCRM.DAL.User dal_user = new CCRM.DAL.User();
-            return dal_user.IsMobileExist(mobile);
+            try
+            {
+                CCRM.DAL.User dal_user = new CCRM.DAL.User();
+                return dal_user.IsMobileExist(mobile);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool IsReusable

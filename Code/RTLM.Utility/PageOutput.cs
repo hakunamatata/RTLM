@@ -6,8 +6,9 @@ using LitJson;
 
 namespace RTLM
 {
-    public class Utility
+    public partial class Utility
     {
+
         /// <summary>
         /// 返回信息
         /// </summary>

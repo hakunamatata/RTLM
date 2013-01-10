@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using RTLM;
 using System.Data;
-using log4net;
+
 namespace RTLM.CCRM.BLL
 {
     public class Users
     {
-        private ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Model.User GetModel(Guid id)
         {
             //Model.Customer = new Model.Customer();
@@ -21,14 +20,14 @@ namespace RTLM.CCRM.BLL
             // 用户不存在
             if (tb_user.Rows.Count == 0)
             {
-                log.Error("message", new Exception(string.Format("未找到 id 为 {0} 的用户。", id)));
+                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
                 return null;
             }
 
             // 找到多个用户
             if (tb_user.Rows.Count > 1)
             {
-                log.Error("error", new Exception(string.Format("找到多个 id 为 {0} 的用户。", id)));
+                throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
                 return null;
             }
             foreach (DataRow dr in tb_user.Rows)

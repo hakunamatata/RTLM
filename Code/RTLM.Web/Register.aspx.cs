@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using RTLM.CCRM.BLL;
+using System.Security.Cryptography;
+using RTLM;
 
 public partial class Register : System.Web.UI.Page
 {
@@ -28,9 +29,24 @@ public partial class Register : System.Web.UI.Page
         string email = Request.Form["txtboxEmail"],
                 mobile = Request.Form["txtboxMobile"],
                 password = Request.Form["txtboxPassword"],
-                checkRead = Request.Form["inputVerifyCode"];
+                verifycode = Request.Form["inputVerifyCode"],
+                readcheck = Request.Form["checkboxRead"];
 
+        try
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            RTLM.CCRM.Model.Consumer model_consumer = new RTLM.CCRM.Model.Consumer();
+            RTLM.CCRM.BLL.Consumer bll_consumer = new RTLM.CCRM.BLL.Consumer();
+            model_consumer.Email = email;
+            model_consumer.Mobile = mobile;
+            model_consumer.Password = Utility.Encrypt(password);
+            bll_consumer.CreateCustomer(model_consumer);
+            Response.Redirect("Default.aspx");
+        }
+        catch (Exception ex)
+        {
 
-        Consumer consumer = new Consumer();
+        }
+
     }
 }

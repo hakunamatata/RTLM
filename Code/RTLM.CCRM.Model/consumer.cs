@@ -51,7 +51,11 @@ namespace RTLM.CCRM.Model
         public Consumer()
             : base()
         {
-
+            RealName = string.Empty;
+            City = null;
+            FirstOrderDate = null;
+            State = null;
+            LastOrderDate = null;
         }
     }
 }

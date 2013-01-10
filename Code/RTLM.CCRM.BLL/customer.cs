@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using log4net;
 
 namespace RTLM.CCRM.BLL
 {
     public class Customer:Users
     {
-        private ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Model.Customer GetModel(Guid id)
         {
             Model.Customer model_customer = new Model.Customer();
@@ -17,7 +15,7 @@ namespace RTLM.CCRM.BLL
 
             if (model_user == null)
             {
-                log.Error("message", new Exception(string.Format("未找到 id 为 {0} 的用户。", id)));
+                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
                 return null;
             }
 
@@ -26,12 +24,12 @@ namespace RTLM.CCRM.BLL
 
             if (tb_customer.Rows.Count == 0)
             {
-                log.Error("message", new Exception(string.Format("未找到 id 为 {0} 的用户。", id)));
+                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
                 return null;
             }
             if (tb_customer.Rows.Count > 1)
             {
-                log.Error("error", new Exception(string.Format("找到多个 id 为 {0} 的用户。", id)));
+                throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
                 return null;
             }
 
@@ -130,7 +128,7 @@ namespace RTLM.CCRM.BLL
             }
             catch (Exception e)
             {
-                log.Error("error", e);
+                throw e;
                 db.RollbackTransaction();
                 return -1; // 执行发生错误。
             }

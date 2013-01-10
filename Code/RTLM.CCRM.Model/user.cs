@@ -16,7 +16,7 @@ namespace RTLM.CCRM.Model
         private string _nick_name;
         private string _mobile;
         private int _gender;
-        private Guid? _group_id;
+        private Guid _group_id;
         private string _avatar;
         private string _safe_question;
         private string _safe_answer;
@@ -26,7 +26,7 @@ namespace RTLM.CCRM.Model
         public Guid ID
         {
             get { return _uid; }
-            private set;
+            set { _uid = value; }
         }
         public string Email
         {
@@ -48,12 +48,12 @@ namespace RTLM.CCRM.Model
             get { return _mobile; }
             set { _mobile = value; }
         }
-        public UserSex Gender
+        public int Gender
         {
-            get { return (UserSex)_gender; }
-            set { _gender = Convert.ToInt16(value); }
+            get { return _gender; }
+            set { _gender = value; }
         }
-        public Guid? GroupID
+        public Guid GroupID
         {
             get { return _group_id; }
             set { _group_id = value; }
@@ -78,23 +78,27 @@ namespace RTLM.CCRM.Model
             get { return _qq; }
             set { _qq = value; }
         }
-        public UserType Type
+        public int Type
         {
-            get { return (UserType)_user_type; }
-            set { _user_type = Convert.ToInt16(value); }
+            get { return _user_type; }
+            set { _user_type = value; }
         }
 
-
-        public User(string email, string password, string mobile)
+        public User()
         {
-            this.ID = Guid.NewGuid();
-            this.Email = email;
-            this.Password = 
-            this.Gender = UserSex.保密;
-            this.GroupID = null;
-            this.Type = UserType.消费者;
-
+            ID = Guid.NewGuid();
+            Email = string.Empty;
+            Password = string.Empty;
+            NickName = string.Empty;
+            Gender = Convert.ToInt16(UserSex.保密);
+            GroupID = Guid.Empty;
+            Avatar = string.Empty;
+            SafeQuestion = string.Empty;
+            SafeAnswer = string.Empty;
+            QQ = string.Empty;
+            Type = Convert.ToInt16(UserType.消费者);
         }
+
     }
 
     public enum UserType
@@ -104,6 +108,6 @@ namespace RTLM.CCRM.Model
 
     public enum UserSex
     {
-        男, 女, 保密
+        保密, 男, 女
     }
 }

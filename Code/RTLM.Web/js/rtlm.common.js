@@ -171,21 +171,6 @@
     *         state    当前所处状态
     *   返回：    
     */
-    function validateState(element, state) {
-        var t = $(element.parentNode.parentNode);
-        switch (state) {
-            case "success":
-                t.removeClass("error");
-                t.addClass("success");
-                $(element).validate = true;
-                break;
-            case "error":
-                t.removeClass("success");
-                t.addClass("error");
-                $(element).validate = false;
-                break;
-        }
-    };
 
 
     var $register = new Class(View);
@@ -195,21 +180,17 @@
         定义实例方法
         */
         email : $('#txtboxEmail'),
-
         mobile : $('#txtboxMobile'),
-        
         password : $('#txtboxPassword'),
-
         repeat: $('#txtboxRepeat'),
         //构造实例并且初始化pageAction为首页
         init: function () {
         
-            var that = this;
-
-            //email.blur(function () { that.isEmailAvailable(email[0]); });
-            //mobile.blur(function () { that.isMobileAvailable(mobile[0]); });
-            //password.blur(function () { that.isPasswordAvailable(password[0]); });
-            //repeat.blur(function () { that.isPasswordRepeat(password[0], repeat[0]); });
+            // Default Settings
+            this.email.defualtMessage = "填写正确的邮箱地址, 忘记密码时可以轻松找回";
+            this.email.existMessage = "该邮箱已经被注册";
+            this.mobile.defualtMessage = "方便我们发送时跟您联系";
+            this.mobile.existMessage = "该手机号已经被注册";
 
             this.bind({
 
@@ -240,20 +221,9 @@
         *   返回：bool     是否存在
         */
         isEmailAvailable: function () {
-            var email = this.email[0];
-                patrn = /^[_a-z0-9]+@([_a-z0-9]+\.)+[a-z0-9]{2,3}$/;
-            if (patrn.exec(email.value)) {
-                $.getJSON(
-                    'api/handlers/users.ashx?action=valid_email&p1=' + email.value,
-                    function (data) {
-                        if (data.success)
-                            validateState(email, "success");
-
-                    }
-                )
-            }
-            else
-                validateState(email, "error");
+            var patrn = /^[_a-z0-9]+@([_a-z0-9]+\.)+[a-z0-9]{2,3}$/;
+            if (patrn.exec(this.email.val())) $.getJSON('api/handlers/users.ashx?action=valid_email&p1=' + this.email.val(), this.proxy(this.ajaxEmail));
+            else this.validateFailed(this.email, "不可用");
         },
 
         /*
@@ -262,12 +232,9 @@
         *   返回：bool     是否存在
         */
         isPasswordAvailable: function (password) {
-            var password = this.password[0],
-                patrn = /^(\w){6,20}$/;
-            if (patrn.exec(password.value))
-                validateState(password, "success");
-            else
-                validateState(password, "error");
+            var patrn = /^(\w){6,20}$/;
+            if (patrn.exec(this.password.val())) this.validateSuccess(this.password, "可用");
+            else this.validateFailed(this.password, "不可用");
         },
 
         /*
@@ -276,32 +243,71 @@
         *   返回：bool     是否存在
         */
         isMobileAvailable: function () {
-            var mobile = this.mobile[0],
-                patrn = /^(\w){6,20}$/;
-            if (patrn.exec(mobile.value)) {
-                $.getJSON(
-                    'api/handlers/users.ashx?action=valid_mobile&p1=' + mobile.value,
-                    function (data) {
-                        if (data.success)
-                            validateState(mobile, "success");
-                    }
-                )
-            }
-            else
-                validateState(mobile, "error");
+            var patrn = /^(\w){6,20}$/;
+            if (patrn.exec(this.mobile.val())) $.getJSON('api/handlers/users.ashx?action=valid_mobile&p1=' + this.mobile.val(),  this.proxy(this.ajaxMobile));
+            else this.validateFailed(this.mobile, "不可用");
 
         },
 
         isPasswordRepeat: function (password, repeat) {
-            var password = this.password[0],
-                repeat = this.repeat[0];
-            if (password.value == repeat.value)
-                validateState(repeat, "success");
-            else
-                validateState(repeat, "error");
+            if (this.password.val() == this.repeat.val()) this.validateSuccess(this.repeat, "可用");
+            else this.validateFailed(this.repeat, "不可用");
 
         },
 
+        ajaxEmail: function(data){
+            var msg = this.email.next();
+            msg.html();
+            if(data.success) this.validateSuccess(this.email, "可用")
+            else this.validateFailed(this.email, this.email.existMessage)
+        },
+
+        ajaxMobile: function(data){
+            var msg = this.mobile.next();
+            msg.html();
+            if(data.success) this.validateSuccess(this.mobile, "可用")
+            else this.validateFailed(this.mobile, this.mobile.existMessage)
+        },
+
+        validateFailed:function(which, message)
+        {
+            var line = which.parent().parent();
+                line.removeClass("success");
+                line.addClass("error"),
+            msg = which.next();
+            msg.html(message);
+            which.validate = false;
+        },
+
+        validateSuccess: function(which, message){
+            var line = which.parent().parent();
+                line.removeClass("error");
+                line.addClass("success"),
+            msg = which.next();
+            msg.html(message);
+            which.validate = true;
+
+        },
+
+        ajaxWaiting: function(which, reset){
+        
+            var help_inline = which.next(),
+                validating = help_inline.attr("data-validating");
+                waitingImg = $("<img>").attr("src","img/loading_tiny.gif");
+
+                if (reset){
+                    help_inline.removeAttr("data-validating");
+                    help_inline.html(this.which.defaultMessage);    
+                    return;
+                }
+                
+                if (!validating){
+                    help_inline.attr("data-validating",true);
+                    help_inline.html(waitingImg);
+                }
+
+               
+         }
     });
 
     scope.register = new $register;
