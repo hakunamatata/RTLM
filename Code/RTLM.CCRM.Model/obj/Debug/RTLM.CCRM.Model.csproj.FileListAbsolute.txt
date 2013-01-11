@@ -3,10 +3,6 @@ C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Mod
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
 C:\Users\Administrator\Documents\Visual Studio 2010\Projects\dtcms\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
-C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
-C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
-C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
-C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
 C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.Model\obj\Debug\ResolveAssemblyReference.cache
@@ -16,3 +12,7 @@ C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Mod
 C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
 C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
 C:\Users\Administrator\Desktop\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.dll
+C:\Github\RTLM\Code\RTLM.CCRM.Model\bin\Debug\RTLM.CCRM.Model.pdb
+C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.dll
+C:\Github\RTLM\Code\RTLM.CCRM.Model\obj\Debug\RTLM.CCRM.Model.pdb
