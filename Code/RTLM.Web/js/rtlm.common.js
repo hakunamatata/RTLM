@@ -183,7 +183,9 @@
         mobile : $('#txtboxMobile'),
         password : $('#txtboxPassword'),
         repeat: $('#txtboxRepeat'),
-        //构造实例并且初始化pageAction为首页
+        veryfy: $('#txtboxVerify'),
+        agree: $('#checkboxRead'),
+
         init: function () {
         
             // Default Settings
@@ -200,9 +202,13 @@
 
                 '#txtboxPassword blur': this.isPasswordAvailable,
 
-                '#txtboxRepeat blur': this.isPasswordRepeat
+                '#txtboxRepeat blur': this.isPasswordRepeat,
+
+                '#checkboxRead click': this.isContractRead
 
             });
+
+            this.validationCheck();
         },
 
         /*
@@ -213,6 +219,11 @@
         navigationChange: function (page_action) {
             var tar = $('#' + page_action);
             tar.addClass("active");
+        },
+
+
+        isContractRead: function(){
+            this.agree.validate = this.agree[0].checked;
         },
 
         /*
@@ -305,50 +316,30 @@
                     help_inline.attr("data-validating",true);
                     help_inline.html(waitingImg);
                 }
+         },
 
-               
+         validationCheck:function ()
+         {
+            var i = false,
+                that = this,
+                btn = $('#btnRegister'),
+                timer = setInterval(function(){
+                
+                    i = that.email.validate && that.mobile.validate && that.agree.validate && that.password.validate && that.repeat.validate ;
+
+                    if (i){
+                        btn.removeClass('disabled');
+                        btn.removeAttr('disabled')
+                    }else{
+                        btn.addClass('disabled');
+                        btn.attr('disabled','disabled')
+                    }
+
+                },200);
          }
     });
 
     scope.register = new $register;
 
 })(RTLM.common.validate, jQuery);
-
-//    var PAGE_ACTION = 'nav_home';
-//    var valid_username = false,
-//    valid_email = false,
-//    valid_mobile = false,
-//    valid_verifycode = true,
-//    valid_password = false;
-
-
-//    navigationChange = function() {
-//        $('#' + PAGE_ACTION).addClass("active");
-//    };
-
-
-
-
-//    function registerValidationCheck() {
-//        var i = false,
-//        btn = $("#btnRegister"),
-//        timer = setInterval(function () {
-//            i = valid_email && valid_mobile && valid_username && valid_verifycode && valid_password;
-
-//            if (i) {
-//                btn.removeClass("disabled");
-//                btn.removeAttr("disabled");
-//            } else {
-//                btn.addClass("disabled");
-//                btn.attr("disabled", "disabled");
-//            }
-//        }, 200);
-
-
-//    }
-
-//    function do_register() {
-
-//    }
-
 

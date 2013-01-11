@@ -17,7 +17,6 @@ namespace RTLM.CCRM.BLL
             if (model_user == null)
             {
                 throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
-                return null;
             }
 
             DAL.Consumer dal_customer = new DAL.Consumer();
@@ -26,12 +25,10 @@ namespace RTLM.CCRM.BLL
             if (tb_customer.Rows.Count == 0)
             {
                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
-                return null;
             }
             if (tb_customer.Rows.Count > 1)
             {
                 throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
-                return null;
             }
 
 
@@ -127,9 +124,10 @@ namespace RTLM.CCRM.BLL
             }
             catch (Exception e)
             {
-                throw e;
+                
                 db.RollbackTransaction();
-                return -1; // 执行发生错误。
+                throw e;
+                //return -1; // 执行发生错误。
             }
             finally
             {

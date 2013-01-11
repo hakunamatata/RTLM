@@ -42,7 +42,7 @@
         <label class="control-label" for="inputVerifyCode">
             验证码</label>
         <div class="controls">
-            <input type="text" id="inputVerifyCode" class="span1" name="inputVerifyCode" placeholder="" />
+            <input type="text" id="txtboxVerify" class="span1" name="inputVerifyCode" placeholder="" />
             <span class="help-inline"></span>
         </div>
     </div>

@@ -26,6 +26,8 @@ public partial class Register : System.Web.UI.Page
     protected void register()
     {
 
+        // 有效性验证
+
         string email = Request.Form["txtboxEmail"],
                 mobile = Request.Form["txtboxMobile"],
                 password = Request.Form["txtboxPassword"],

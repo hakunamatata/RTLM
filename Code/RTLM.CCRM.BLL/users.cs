@@ -21,14 +21,12 @@ namespace RTLM.CCRM.BLL
             if (tb_user.Rows.Count == 0)
             {
                 throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
-                return null;
             }
 
             // 找到多个用户
             if (tb_user.Rows.Count > 1)
             {
                 throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
-                return null;
             }
             foreach (DataRow dr in tb_user.Rows)
             {
