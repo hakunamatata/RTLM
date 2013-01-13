@@ -25,3 +25,6 @@ C:\Github\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.CCRM.Model.pdb
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.csprojResolveAssemblyReference.cache
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.dll
 C:\Github\RTLM\Code\RTLM.CCRM.BLL\obj\Debug\RTLM.CCRM.BLL.pdb
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.Utility.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\LitJson.dll
+C:\Users\Administrator\Documents\GitHub\RTLM\Code\RTLM.CCRM.BLL\bin\Debug\RTLM.Utility.pdb

@@ -1,7 +1,9 @@
 ﻿
-/*
-类构造器
-*/
+/* ===========================================================================
+    包体说明：   用来模拟实现面向对象编程机制， 并且提供一种简单的MVC框架
+
+    索引器：     _ROOT
+   =========================================================================*/
 
 (function (scope) {
 
@@ -73,6 +75,16 @@
 
 })(window, jQuery);
 
+
+
+
+
+/* ===========================================================================
+    包体说明： 顶级命名空间RTLM，包含系统中所有前端对象，控制与操作
+
+    索引器：   RTLM
+   =========================================================================*/
+
 (function (scope) {
 
     var $RTLM = new Class;
@@ -89,6 +101,12 @@
 })(window);
 
 
+/* ===========================================================================
+    包体说明： 系统前端一些通用处理对象，包含视图的定义，实用操作
+               方法等，为搭建简单的MVC创建了可能
+
+    索引器：   RTLM.common
+   =========================================================================*/
 (function (scope) {
 
     var $common = new Class;
@@ -105,24 +123,35 @@
 
 })(RTLM);
 
+
+
+/* ===========================================================================
+    包体说明： 这部分是为系统提供了前端页面交互的对象，实现各个页面
+               互动的对象都将继承此类
+
+    索引器：   RTLM.page
+=========================================================================*/
 (function (scope) {
 
-    $validate = new Class;
+    $page = new Class;
 
     //validate预定义
-    $validate.extend({
+    $page.extend({
         init: function () { }
     });
 
-    scope.validate = new $validate;
+    scope.page = new $page;
 
-})(RTLM.common);
+})(RTLM);
 
 
-/*
-包体说明：  
-本包主要为控制页面导航控制其样式
-*/
+
+
+/* ===========================================================================
+    包体说明： 这部分是系统导航类，有关导航栏的操作都将在此处定义
+
+    索引器：   RTLM.common.navigator
+=========================================================================*/
 (function (scope, $) {
 
     var $navigator = new Class;
@@ -151,17 +180,107 @@
 })(RTLM.common, jQuery);
 
 
-/*
-包体说明：
-        
-本包主要为注册页面提供控制引擎，涉及到的控件的命名必须严格按照
-包内定义的名称命名，涉及到的控件以及命名规范如下：
-邮箱 id: 'txtboxEmail'
-            
+
+/* ===========================================================================
+    包体说明： 这部分是系统页面信息输出类，主要负责系统信息的输出
+               和简单错误信息，和提醒的输出
+
+    索引器：   RTLM.common.$message
+=========================================================================*/
+(function (scope, $) {
+
+    var $message = new Class;
+    $message.extend({
+
+        //        消息格式                
+        //        message:{
+        //            
+        //            type: [                
+        //                    0,        //success,
+        //                    1,        //failed,
+        //                    2,        //error,
+        //                    3,        //info
+        //                  ],
+
+        //            message:"暂无信息"
+
+        //        },
+
+        init: function () {
+
+            if (this.message) {
+                switch (this.message.type) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+
+                        $.dialog(this.message.message);
+
+                        break;
+                }
+
+            }
+
+        }
+
+    });
+
+    scope.$message = $message;
+
+})(RTLM.common, jQuery);
 
 
-*/
 
+/* ===========================================================================
+    包体说明： 这部分是为了防止页面重复提交而设置的插件，在页面
+               元素被点击时，2s内无法再次点击
+
+    索引器：   RTLM.common.防止重复提交
+=========================================================================*/
+(function (scope, $) {
+
+    var buttons = $(".vtn");
+
+    buttons.click(function () {
+
+        var that = $(this),
+            timeout = that.attr("data-timeout");
+
+        if(!timeout) timeout = 2000;
+
+        setTimeout(function () {
+
+            that.attr("disabled", "disabled");
+
+            var text = that.val();
+
+            that.val(text + "...");
+
+            t = setTimeout(function () {
+
+                that.removeAttr("disabled");
+
+                that.val(text);
+
+            }, timeout);
+
+        }, 20);
+
+    });
+
+})(RTLM.common, jQuery);
+
+
+/* ===========================================================================
+    包体说明： 这部分主要为注册页面提供控制引擎，继承自视图，
+               涉及到的控件的命名必须严格按照包内定义的名称命名
+
+    索引器：   RTLM.page.$register
+=========================================================================*/
 (function (scope, $) {
 
 
@@ -339,7 +458,57 @@
          }
     });
 
-    scope.register = new $register;
+    scope.$register = $register;
 
-})(RTLM.common.validate, jQuery);
+})(RTLM.page, jQuery);
 
+
+/* ===========================================================================
+    包体说明： 部分主要提供注册页面相关操作对象
+
+    索引器：   RTLM.page.$login
+=========================================================================*/
+(function (scope, $) { 
+
+    var $login = new Class(View);
+
+    $login.extend({
+    
+        init: function(){
+        
+            this.account = $("#txtboxAccount");
+
+            this.password = $("#txtboxPassword");
+
+            this.loginState = $("#divLoginState");
+
+            this.bind({
+            
+                "#buttonLogin click": this.submit
+            
+            });
+
+        },
+
+        submit:function(){
+            
+           $.getJSON('api/handlers/users.ashx',{action:"login", p1:"consumer",p2:this.account.val(), p3:this.password.val() } , this.proxy(this.ajaxAccount));
+
+        },
+
+        ajaxAccount: function(data)
+        {
+            if(data.success)
+                location.href="Default.aspx";
+            else
+                {
+                    this.loginState.text("登录失败");
+                    this.loginState.css("color","red");
+                }
+        }
+    
+    });
+
+    scope.$login = $login;
+
+})(RTLM.page, jQuery);

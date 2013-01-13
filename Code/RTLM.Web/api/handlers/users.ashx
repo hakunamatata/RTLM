@@ -28,8 +28,11 @@ namespace RTLM.Web.Api.Handler
             }
 
             string action = context.Request.QueryString["action"];
+
+
             switch (action)
             {
+                #region 注册相关
                 case "valid_email":
                     string email = context.Request.QueryString["p1"];
                     if (!valid_email(email))
@@ -45,14 +48,27 @@ namespace RTLM.Web.Api.Handler
                     else
                         context.Response.Write(Utility.ReturnFailedMessage("手机验证失败。"));
                     break;
+                #endregion
 
+                case "login":
+                    string userType = context.Request.QueryString["p1"],
+                           user = context.Request.QueryString["p2"],
+                           password = context.Request.QueryString["p3"];
+                    if (userType == "consumer")
+                    {
+                        if (consumerLogin(user, password))
+                            context.Response.Write(Utility.ReturnSuccessMessage());
+                        else
+                            context.Response.Write(Utility.ReturnFailedMessage("登录失败。"));
+                    }
+                    break;
                 default:
                     break;
             }
 
         }
 
-
+        #region 用户注册所涉及的验证和方法
         /// <summary>
         /// 邮箱是否存在
         /// </summary>
@@ -62,7 +78,7 @@ namespace RTLM.Web.Api.Handler
         {
             try
             {
-                CCRM.DAL.User dal_user = new CCRM.DAL.User();
+                Ccrm.Dal.User dal_user = new Ccrm.Dal.User();
                 return dal_user.IsEmailExist(email);
             }
             catch (Exception ex)
@@ -80,7 +96,7 @@ namespace RTLM.Web.Api.Handler
         {
             try
             {
-                CCRM.DAL.User dal_user = new CCRM.DAL.User();
+                Ccrm.Dal.User dal_user = new Ccrm.Dal.User();
                 return dal_user.IsMobileExist(mobile);
             }
             catch (Exception ex)
@@ -89,6 +105,28 @@ namespace RTLM.Web.Api.Handler
             }
         }
 
+        #endregion
+
+
+
+
+        #region 用户登录相关
+
+        bool consumerLogin(string user, string pwd)
+        {
+            try
+            {
+                RTLM.Ccrm.Bll.Consumer bll_consumer = new RTLM.Ccrm.Bll.Consumer();
+                return bll_consumer.ConsumerLogin(user, pwd) == 1;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+        #endregion
         public bool IsReusable
         {
             get

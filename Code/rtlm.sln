@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.CCRM.DAL", "RTLM.CCRM.DAL\RTLM.CCRM.DAL.csproj", "{BC140666-CAF4-466D-A45D-2A49970CF5AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Ccrm.Dal", "RTLM.CCRM.DAL\RTLM.Ccrm.Dal.csproj", "{BC140666-CAF4-466D-A45D-2A49970CF5AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.CCRM.Model", "RTLM.CCRM.Model\RTLM.CCRM.Model.csproj", "{30482E8B-44E4-48C3-844E-905AD3740A81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Ccrm.Model", "RTLM.CCRM.Model\RTLM.Ccrm.Model.csproj", "{30482E8B-44E4-48C3-844E-905AD3740A81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.CCRM.BLL", "RTLM.CCRM.BLL\RTLM.CCRM.BLL.csproj", "{5D310BE3-5972-4B31-907B-678A324D0660}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Ccrm.Bll", "RTLM.CCRM.BLL\RTLM.Ccrm.Bll.csproj", "{5D310BE3-5972-4B31-907B-678A324D0660}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RTLM.Web", "RTLM.Web\", "{12934A7B-F5C8-4DB3-BDFB-7A9179099FBC}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -32,6 +32,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTLM.Utility", "RTLM.Utility\RTLM.Utility.csproj", "{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}"
 EndProject
 Global
+	GlobalSection(PowerDesigner) = preSolution
+		HasSWS = 1
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

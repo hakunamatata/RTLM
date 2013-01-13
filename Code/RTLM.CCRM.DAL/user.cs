@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace RTLM.CCRM.DAL
+namespace RTLM.Ccrm.Dal
 {
 
     public class User
@@ -178,7 +178,7 @@ namespace RTLM.CCRM.DAL
         /// </summary>
         /// <param name="parm_user_id"></param>
         /// <returns></returns>
-        public DataTable GetDataBy(Guid parm_user_id)
+        public DataTable GetDataByID(Guid parm_user_id)
         {
             try
             {
@@ -198,6 +198,73 @@ namespace RTLM.CCRM.DAL
 				FROM ccrm_users
                 WHERE uid=@uid";
                 db.AddParameter(new SqlParameter("@uid", parm_user_id));
+                return db.ExecuteDataSet(Query, connState).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取表 ccrm_users 数据时失败。\n" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 根据用户邮箱获取用户
+        /// </summary>
+        /// <param name="parm_user_id"></param>
+        /// <returns></returns>
+        public DataTable GetDataByEmail(string parm_email)
+        {
+            try
+            {
+                string Query = @"SELECT 
+				uid,
+				email,
+				password,
+				nick_name,
+				mobile,
+				gender,
+				group_id,
+				avatar,
+				safe_question,
+				safe_answer,
+				qq,
+				user_type
+				FROM ccrm_users
+                WHERE email=@email";
+                db.AddParameter(new SqlParameter("@email", parm_email));
+                return db.ExecuteDataSet(Query, connState).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取表 ccrm_users 数据时失败。\n" + ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// 根据用户手机号获取用户
+        /// </summary>
+        /// <param name="parm_user_id"></param>
+        /// <returns></returns>
+        public DataTable GetDataByMobile(string parm_mobile)
+        {
+            try
+            {
+                string Query = @"SELECT 
+				uid,
+				email,
+				password,
+				nick_name,
+				mobile,
+				gender,
+				group_id,
+				avatar,
+				safe_question,
+				safe_answer,
+				qq,
+				user_type
+				FROM ccrm_users
+                WHERE mobile=@mobile";
+                db.AddParameter(new SqlParameter("@email", parm_mobile));
                 return db.ExecuteDataSet(Query, connState).Tables[0];
             }
             catch (Exception ex)

@@ -6,6 +6,7 @@
     <title>页面模板</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="js/skins/blue.css" rel="stylesheet" type="text/css" />
     <style>
         body
         {
@@ -112,6 +113,7 @@
         &copy; Company 2012</p>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.artDialog.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/rtlm.common.js"></script>
     <!-- 
         全局JS
@@ -121,5 +123,7 @@
     </script>
     <asp:ContentPlaceHolder ID="ContentPlaceHolderClientScripts" runat="server">
     </asp:ContentPlaceHolder>
+
+
 </body>
 </html>

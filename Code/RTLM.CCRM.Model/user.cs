@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace RTLM.CCRM.Model
+namespace RTLM.Ccrm.Model
 {
 
     public class User

@@ -25,6 +25,7 @@ public partial class Register : System.Web.UI.Page
 
     protected void register()
     {
+        
 
         // 有效性验证
 
@@ -37,17 +38,17 @@ public partial class Register : System.Web.UI.Page
         try
         {
             MD5 md5 = new MD5CryptoServiceProvider();
-            RTLM.CCRM.Model.Consumer model_consumer = new RTLM.CCRM.Model.Consumer();
-            RTLM.CCRM.BLL.Consumer bll_consumer = new RTLM.CCRM.BLL.Consumer();
+            RTLM.Ccrm.Model.Consumer model_consumer = new RTLM.Ccrm.Model.Consumer();
+            RTLM.Ccrm.Bll.Consumer bll_consumer = new RTLM.Ccrm.Bll.Consumer();
             model_consumer.Email = email;
             model_consumer.Mobile = mobile;
             model_consumer.Password = Utility.Encrypt(password);
-            bll_consumer.CreateCustomer(model_consumer);
+            bll_consumer.CreateConsumer(model_consumer);
             Response.Redirect("Default.aspx");
         }
         catch (Exception ex)
         {
-
+            
         }
 
     }

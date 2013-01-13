@@ -4,30 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace RTLM.CCRM.BLL
+namespace RTLM.Ccrm.Bll
 {
     public class Customer : Users
     {
-        public Model.Customer GetModel(Guid id)
+        public Model.Customer GetModel(string user)
         {
             Model.Customer model_customer = new Model.Customer();
-            Model.User model_user = base.GetModel(id);
+            Model.User model_user = base.GetModel(user);
 
             if (model_user == null)
             {
-                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("未找到用户 {0}。", user));
             }
 
-            DAL.Customer dal_customer = new DAL.Customer();
-            DataTable tb_customer = dal_customer.GetDataBy(id);
+            Dal.Customer dal_customer = new Dal.Customer();
+            DataTable tb_customer = dal_customer.GetDataBy(model_user.ID);
 
             if (tb_customer.Rows.Count == 0)
             {
-                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("未找到用户 {0}。", user));
             }
             if (tb_customer.Rows.Count > 1)
             {
-                throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("找到用户 {0}。", user));
             }
 
 
@@ -71,7 +71,7 @@ namespace RTLM.CCRM.BLL
 
         public bool IsCustomerExist(Guid id)
         {
-            return DAL.Customer.Exist(id) == 1;
+            return Dal.Customer.Exist(id) == 1;
         }
 
 
@@ -93,7 +93,7 @@ namespace RTLM.CCRM.BLL
             try
             {
                 db.BeginTransaction();
-                DAL.User dal_user = new DAL.User(db);
+                Dal.User dal_user = new Dal.User(db);
                 dal_user.Insert(
                             Customer.ID,
                             Customer.Email,
@@ -108,7 +108,7 @@ namespace RTLM.CCRM.BLL
                             Customer.QQ,
                             Customer.Type
                            );
-                DAL.Customer dal_customer = new DAL.Customer(db);
+                Dal.Customer dal_customer = new Dal.Customer(db);
                 dal_customer.Insert(
                                     Customer.ID,
                                     Customer.StoreName,

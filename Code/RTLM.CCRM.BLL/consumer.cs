@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using RTLM;
 
-namespace RTLM.CCRM.BLL
+namespace RTLM.Ccrm.Bll
 {
     public class Consumer : Users
     {
-        public Model.Consumer GetModel(Guid id)
+        public Model.Consumer GetModel(string user)
         {
             
             Model.Consumer model_consumer = new Model.Consumer();
-            Model.User model_user = base.GetModel(id);
+            Model.User model_user = base.GetModel(user);
 
             if (model_user == null)
             {
-                throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("未找到用户 {0}。", user));
             }
 
-            DAL.Consumer dal_customer = new DAL.Consumer();
-            DataTable tb_customer = dal_customer.GetDataBy(id);
+            Dal.Consumer dal_customer = new Dal.Consumer();
+            DataTable tb_customer = dal_customer.GetDataBy(model_user.ID);
 
             if (tb_customer.Rows.Count == 0)
             {
-               throw new Exception(string.Format("未找到 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("未找到用户 {0}", user));
             }
             if (tb_customer.Rows.Count > 1)
             {
-                throw new Exception(string.Format("找到多个 id 为 {0} 的用户。", id));
+                throw new Exception(string.Format("找到的用户 {0}。", user));
             }
 
 
@@ -69,18 +70,18 @@ namespace RTLM.CCRM.BLL
 
 
 
-        public bool IsConsumerExist(Guid id)
+        public bool IsConsumerExist(string id)
         {
-            return DAL.Consumer.Exist(id) == 1;
+            return Dal.Consumer.Exist(id) == 1;
         }
 
 
         /// <summary>
-        /// 创建客户
+        /// 创建消费者
         /// </summary>
         /// <param name="Customer"></param>
         /// <returns></returns>
-        public int CreateCustomer(Model.Consumer Consumer)
+        public int CreateConsumer(Model.Consumer Consumer)
         {
             // 1: 用户已存在
             //BLL.Users bll_user = new 
@@ -93,7 +94,7 @@ namespace RTLM.CCRM.BLL
             try
             {
                 db.BeginTransaction();
-                DAL.User dal_user = new DAL.User(db);
+                Dal.User dal_user = new Dal.User(db);
                 dal_user.Insert(
                             Consumer.ID,
                             Consumer.Email,
@@ -108,7 +109,7 @@ namespace RTLM.CCRM.BLL
                             Consumer.QQ,
                             Consumer.Type
                            );
-                DAL.Consumer dal_consumer = new DAL.Consumer(db);
+                Dal.Consumer dal_consumer = new Dal.Consumer(db);
                 dal_consumer.Insert(
                                     Consumer.ID,
                                     Consumer.RealName,
@@ -133,6 +134,25 @@ namespace RTLM.CCRM.BLL
             {
                 db.Dispose();
             }
+        }
+
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns> 1：登录成功  0：登录失败</returns>
+        public int ConsumerLogin(string user, string password)
+        {
+            Consumer bll_consumer = new Consumer();
+            Model.Consumer model_consumer = new Model.Consumer();
+            if (bll_consumer.IsEmialExist(user) || bll_consumer.IsMobileExist(user))
+            {
+                model_consumer = bll_consumer.GetModel(user);
+                if (Utility.Encrypt(password) == model_consumer.Password) return 1;
+            }
+
+            return 0;
         }
 
     }

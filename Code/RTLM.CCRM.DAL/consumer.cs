@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using RTLM;
 
-namespace RTLM.CCRM.DAL{
+namespace RTLM.Ccrm.Dal{
     public class Consumer
     {
         #region DAL类头部，请务必保留。
@@ -174,14 +174,14 @@ namespace RTLM.CCRM.DAL{
         /// </summary>
         /// <param name="param_id">用户编号|email|手机|用户名</param>
         /// <returns></returns>
-        public static int Exist(Guid param_id)
+        public static int Exist(string param_id)
         {
             DbHelper db = new DbHelper();
             try
             {
-                string Query = @"SELECT COUNT(*) FROM dt_users du, ccrm_consumer cc
-                                WHERE du.id = cc.cid
-                                AND du.id = @id OR du.email = @id OR du.[user_name]=@id OR du.mobile = @id";
+                string Query = @"SELECT COUNT(*) FROM ccrm_users du, ccrm_consumer cc
+                                WHERE du.uid = cc.cid
+                                AND du.email = @id OR du.mobile = @id";
                 SqlParameter[] Parms = {
 			                                new SqlParameter("@id",  param_id)
 		                                };

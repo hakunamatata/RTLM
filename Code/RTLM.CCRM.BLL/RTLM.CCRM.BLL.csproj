@@ -44,18 +44,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="customer.cs" />
+    <Compile Include="group.cs" />
     <Compile Include="users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="consumer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RTLM.CCRM.DAL\RTLM.CCRM.DAL.csproj">
+    <ProjectReference Include="..\RTLM.CCRM.DAL\RTLM.Ccrm.Dal.csproj">
       <Project>{BC140666-CAF4-466D-A45D-2A49970CF5AE}</Project>
-      <Name>RTLM.CCRM.DAL</Name>
+      <Name>RTLM.Ccrm.Dal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RTLM.CCRM.Model\RTLM.CCRM.Model.csproj">
+    <ProjectReference Include="..\RTLM.CCRM.Model\RTLM.Ccrm.Model.csproj">
       <Project>{30482E8B-44E4-48C3-844E-905AD3740A81}</Project>
-      <Name>RTLM.CCRM.Model</Name>
+      <Name>RTLM.Ccrm.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RTLM.Utility\RTLM.Utility.csproj">
+      <Project>{14C8C08A-9119-4EF2-ABB4-42FB06B1AC8F}</Project>
+      <Name>RTLM.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

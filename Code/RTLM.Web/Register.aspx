@@ -60,6 +60,10 @@
 </asp:Content>
 <asp:Content runat="server" ID="ContentClientScript" ContentPlaceHolderID="ContentPlaceHolderClientScripts">
     <script>
+        // 导航对象，模板页已定义
         navBar.active("nav_register");
+
+        // 创建注册页实例
+        var Register = new RTLM.page.$register;
     </script>
 </asp:Content>

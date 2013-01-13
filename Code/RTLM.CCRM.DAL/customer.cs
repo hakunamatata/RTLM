@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using RTLM;
 
-namespace RTLM.CCRM.DAL
+namespace RTLM.Ccrm.Dal
 {
     public class Customer
     {

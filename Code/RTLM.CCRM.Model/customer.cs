@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace RTLM.CCRM.Model
+namespace RTLM.Ccrm.Model
 {
     public class Customer : User
     {
