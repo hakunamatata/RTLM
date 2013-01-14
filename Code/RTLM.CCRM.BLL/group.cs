@@ -23,7 +23,9 @@ namespace RTLM.Ccrm.Bll
             DataRow dr = dt.Rows[0];
 
             model_group.ID = Guid.Parse(dr["group_id"].ToString());
-
+            model_group.IsDefault = Convert.ToInt16(dr["is_default"]) == 1;
+            model_group.Title = dr["title"].ToString();
+            model_group.ParentGroupID = null;
 
             return model_group;
         }

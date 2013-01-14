@@ -9,3 +9,4 @@ C:\Github\RTLM\Code\RTLM.Utility\bin\Debug\RTLM.Utility.pdb
 C:\Github\RTLM\Code\RTLM.Utility\bin\Debug\LitJSON.dll
 C:\Github\RTLM\Code\RTLM.Utility\obj\Debug\RTLM.Utility.dll
 C:\Github\RTLM\Code\RTLM.Utility\obj\Debug\RTLM.Utility.pdb
+C:\Github\RTLM\Code\RTLM.Utility\obj\Debug\RTLM.Utility.csprojResolveAssemblyReference.cache

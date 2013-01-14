@@ -17,15 +17,14 @@ public partial class Register : System.Web.UI.Page
         if (action == "register")
         {
             register();
+
         }
-
-
     }
 
 
     protected void register()
     {
-        
+
 
         // 有效性验证
 
@@ -48,7 +47,7 @@ public partial class Register : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            
+
         }
 
     }
