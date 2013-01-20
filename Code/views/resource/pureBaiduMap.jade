@@ -1,0 +1,22 @@
+!!!
+html
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    script(src="http://api.map.baidu.com/api?v=1.4")
+    script(src="/js/rtlm.common.js")
+    link(rel='stylesheet', href='/css/rtlm.common.css')
+  body
+    div#allmap
+    script
+      var map = new BMap.Map("allmap");            // 创建Map实例
+      var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
+      map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+      map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+
+//
+   Created with JetBrains WebStorm.
+   User: xymbtc
+   Date: 13-1-20
+   Time: 下午8:22
+   To change this template use File | Settings | File Templates.
+
