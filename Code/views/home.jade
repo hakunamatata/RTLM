@@ -1,7 +1,16 @@
 extends layout
 block content
+    div.fixed
+        div.hero-unit.container
+            div#myCarousel.carousel.slide
+                div.carousel-inner
+                    div.active.item
+                        p 123
+                    div.item
+                        p 456
+                    div.item
+                        p 789
+                a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
+                a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
     div#mapmask
     div#allmap
-    div.hero-unit.container
-        h1= title
-        p Welcome to #{title}
