@@ -109,15 +109,13 @@
 
  索引器：     $Map, 地图类
  =========================================================================*/
-(function (scope, baiduMap, $) {
+(function (scope, $) {
 
     var $map = new Class($View);
 
     $map.extend({
 
         init:function (name) {
-
-            this.map = new baiduMap(name);
 
             this.view = $("#allmap");
 
@@ -161,7 +159,7 @@
 
     scope.$Map = $map;
 
-})(window, BMap.Map, jQuery);
+})(window, jQuery);
 
 
 
