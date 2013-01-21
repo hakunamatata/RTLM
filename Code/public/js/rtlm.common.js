@@ -135,7 +135,7 @@
             if(!this.locked){
 
                 this.mask.css("z-index","1");
-                this.mask.show();
+                this.mask.fadeIn(500);
                 this.view.css("z-index","0");
 
                 this.locked = true;
@@ -147,7 +147,7 @@
 
             if(this.locked){
                 this.mask.css("z-index","1");
-                this.mask.hide();
+                this.mask.fadeOut(500);
                 this.view.css("z-index","0");
 
                 this.locked = false;
