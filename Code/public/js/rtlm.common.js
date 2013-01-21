@@ -115,11 +115,11 @@
 
     $map.extend({
 
-        init:function (name) {
+            init:function () {
 
-            this.view = $("#allmap");
+                this.view = $("#allmap");
 
-            this.mask = $("#mapmask");
+                this.mask = $("#mapmask");
 
             this.hide();
 
