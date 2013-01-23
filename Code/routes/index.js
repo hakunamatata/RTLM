@@ -2,6 +2,8 @@
 /*
  * GET home page.
  */
+var cons_ctrl = require("../controllers");
+
 
 var brand = 'Bootstrap for Jade';
 
@@ -16,3 +18,7 @@ exports.home = function(req, res){
 exports.about = function(req, res){
   res.render('about', { title: 'About', id: 'about', brand: brand })
 };
+
+exports.addConsumer = function(req, res, next){
+    return cons_ctrl.add_consumer(req,res,next);
+}

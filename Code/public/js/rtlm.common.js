@@ -324,13 +324,13 @@
 
         units:[],
 
-        init:function(view){
+        init:function(view, func){
 
             this.view = $(view);
 
+            this.callbackFun = func;
+
             this.derender();
-
-
 
         }   ,
 
@@ -383,15 +383,15 @@
 
             var that = this;
 
-            this.myPosition = $(".position-my").attr("data-point");
+            this.myPosition = $(".position-my", this.view.selector);
 
-            this.tarPosition = $(".position-tar").attr("data-point");
+            this.tarPosition = $(".position-tar", this.view.selector);
 
-            this.phone = $(".cellphone");
+            this.phone = $(".cellphone", this.view.selector);
 
             if( this.type == this.parent.typeE.consumer){
 
-                this.myPosition.click();
+                this.tarPosition.bind("click", this.parent.callbackFun);
 
             }
 
