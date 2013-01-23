@@ -168,3 +168,7 @@ pip-log.txt
 ##  Javascript
 ##############
 node_modules
+.idea
+Code/.idea/workspace.xml
+
+*.xml
