@@ -32,7 +32,7 @@
       <file leaf-file-name="rtlm.common.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/rtlm.common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="342" column="82" selection-start="6215" selection-end="6215" vertical-scroll-proportion="0.5924933">
+            <state line="395" column="22" selection-start="7008" selection-end="7008" vertical-scroll-proportion="0.64343166">
               <folding />
             </state>
           </provider>
@@ -527,7 +527,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/rtlm.common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="342" column="82" selection-start="6215" selection-end="6215" vertical-scroll-proportion="0.5924933">
+        <state line="395" column="22" selection-start="7008" selection-end="7008" vertical-scroll-proportion="0.64343166">
           <folding />
         </state>
       </provider>

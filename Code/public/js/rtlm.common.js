@@ -330,6 +330,8 @@
 
             this.derender();
 
+
+
         }   ,
 
         derender:function(){
@@ -344,9 +346,15 @@
 
         },
 
-        hide:function(){
+        hide:function(func){
 
+            this.view.fadeOut(500, func);
 
+        },
+
+        show:function(func){
+
+            this.view.fadeIn(500, func);
 
         }
 
@@ -380,6 +388,12 @@
             this.tarPosition = $(".position-tar").attr("data-point");
 
             this.phone = $(".cellphone");
+
+            if( this.type == this.parent.typeE.consumer){
+
+                this.myPosition.click();
+
+            }
 
         }
     })
