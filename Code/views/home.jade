@@ -1,15 +1,66 @@
 extends layout
 block content
-    div.fixed
+    div.fixed.Heroframe
         div.container
             div#myCarousel.carousel.slide
                 div.carousel-inner
-                    div.active.item
-                        p 123
-                    div.item
-                        p 456
-                    div.item
-                        p 789
+                    div.active.item.exb-unit
+                        div.container-fluid
+                            div.row-fluid.about
+                                div.span6
+                                    img(src='/img/6K8S60JZQD14.png')
+                                div.span6
+                                    div.row-fluid
+                                        div.span12
+                                            p 快告诉我你这网站是做什么的。
+                                        div.span12
+                                            br
+                                        div.span12
+                                            input(type="button", class="btn btn-primary", value="详细了解 >>")
+                    div.item.exb-unit
+                        div.container-fluid
+                            div.row-fluid.costomer
+                                div.span6
+                                    img(src='/img/EJ3298DS2F5D.png')
+                                div.span6
+                                    div.row-fluid
+                                        div.span12
+                                            p 有人在我这儿买东西，能帮我送过去嘛。
+                                        div.span12
+                                            br
+                                        div.span12
+                                            span 我在：
+                                            input(type="text", class="input-xlarge position-my",data-point="", data-location="", placeholder="输入您现在的位置")
+                                        div.span12
+                                            span 送至：
+                                            input(type="text", class="input-xlarge position-tar",data-point="", data-location="", placeholder="输入对方的位置")
+                                        div.span12
+                                            span 跟他联系时拨打：
+                                            input(type="text", class="input-small cellphone", placeholder="电话/手机号码")
+                    div.item.exb-unit
+                        div.container-fluid
+                            div.row-fluid.consumer
+                                div.span6
+                                    img(src='/img/AQB1LA88Y219.png')
+                                div.span6
+                                    div.row-flsuid
+                                        div.span12
+                                            p 快，帮我去买个东西，给你小费。
+                                        div.span12
+                                            br
+                                        div.span12
+                                            span 店的位置在：
+                                            input(type="button", class="btn position-tar", data-point="", data-location="",  value="在地图上选择")
+                                        div.span12
+                                            br
+                                        div.span12
+                                            span 我的位置在：
+                                            input(type="text", class="input-xlarge position-my", data-point="", data-location="",  value="在地图上选择")
+                                        div.span12
+                                            br
+                                        div.span12
+                                            span 跟我联系时拨打：
+                                            input(type="text", class="input-small cellphone", placeholder="电话/手机号码")
                 a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
                 a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
     div#mapmask

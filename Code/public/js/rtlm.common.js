@@ -300,10 +300,93 @@
 
 })(window, jQuery);
 
+/* ===========================================================================
+ 包体说明：   窗口展示
+
+ 索引器：     $Hero
+ =========================================================================*/
+
+(function(scope, $){
+
+    var $Hero = new Class($View);
+
+    $Hero.extend({
+
+        typeE:{
+
+            about: 'about',
+
+            costomer:'customer',
+
+            consumer:'consumer'
+
+        },
+
+        units:[],
+
+        init:function(view){
+
+            this.view = $(view);
+
+            this.derender();
+
+        }   ,
+
+        derender:function(){
+
+            for(var i in this.typeE){
+
+                var unit = new $unit(this.view.find("." + this.typeE[i]), this.typeE[i], this);
+
+                this.units.push(unit);
+
+            }
+
+        },
+
+        hide:function(){
 
 
 
+        }
 
+
+
+    })
+
+
+    var $unit = new Class($View);
+
+    $unit.extend({
+
+        init:function(view, type, parent){
+
+            this.parent = parent;
+
+            this.view = $(view);
+
+            this.type = type;
+
+            this.derender();
+
+        },
+
+        derender:function(){
+
+            var that = this;
+
+            this.myPosition = $(".position-my").attr("data-point");
+
+            this.tarPosition = $(".position-tar").attr("data-point");
+
+            this.phone = $(".cellphone");
+
+        }
+    })
+
+    scope.Hero = $Hero;
+
+})(UI, jQuery);
 
 
 
