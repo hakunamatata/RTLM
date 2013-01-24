@@ -7,7 +7,7 @@
 (function(scope, jQuery){
 
     // 地图标记类，继承自BMap.Marker
-    var $Marker = new Class(UI);
+    var $Marker = new Class($View);
     $Marker.include({
         init:function(point, opt, map){
 
@@ -25,21 +25,46 @@
 
             });
 
+            // 定义标记
             this.marker = new BMap.Marker(point, {icon: icon});
 
+            // 定义marker所属的map
             this.map = map;
+
             // 允许拖动
             this.marker.enableDragging();
+
+            // 定义标签
+            this.label = new BMap.Label(this.getLabelTitle());
+            this.label.setOffset(new BMap.Size(30,10));
+            this.marker.setLabel(this.label);
+
+            // 事件绑定
+            var that = this,
+                _label = this.label;
             this.marker.addEventListener("dragend", function(e){
-                var info = new $InfoWindow("当前位置：" + e.point.lng + ", " + e.point.lat, {}, this.map);
-                info.addToMap(e.point);
+                // 这里 this 指的是这个Marker
+                //var pos = this.map.pointToOverlayPixel(this.getPosition());
+                _label.setContent(that.getLabelTitle());
+
+            });
+            this.marker.addEventListener("dragging", function(e){
+                _label.setContent(that.getLabelTitle());
             })
+
         },
 
+        // 添加至地图
         addToMap:function(){
             this.map.addOverlay(this.marker);
         },
 
+        // 获取标注标题
+        getLabelTitle:function(){
+            return "当前位置：" + this.marker.getPosition().lng + ", " + this.marker.getPosition().lat;
+        },
+
+        // 删除这个标记
         remove:function(){
             this.map.removeOverlay(this.marker);
             this.marker.dispose();
@@ -48,9 +73,9 @@
     });
 
     // 信息窗口类
-    var $InfoWindow = new Class(UI);
+    var $Info = new Class($View);
 
-    $InfoWindow.include({
+    $Info.include({
 
         init:function(txt, opt, map){
 
@@ -67,8 +92,7 @@
         }
     });
 
-    scope.Marker = $Marker;
-    scope.InfoWindow = $InfoWindow;
-
+    scope.MapMarker = $Marker;
+    scope.MapInfo = $Info;
 })(window, jQuery);
 

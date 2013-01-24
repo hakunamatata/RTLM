@@ -45,10 +45,12 @@ var hero = new UI.Hero(".Heroframe", function(){
         hero.hide();
 
         var point = new BMap.Point(118.796116, 32.056313);
-        var marker = new Marker(point, {icon:'/img/marker.png'}, Map)
+        var marker = new MapMarker(point, {icon:'/img/marker.png'}, Map);
         marker.addToMap();
+
+
 
     }
     // $.post("/add", {cellphone: '13776571079', location:{lt:118.790722, dm:32.044015}}, function(d){  if(d.success){  console.log("saved");  } })
-
+    $('.btn btn-primary').tooltip({title:'123', animation:true, placement:'top', trigger:'hover'});
 });
