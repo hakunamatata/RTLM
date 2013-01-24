@@ -5,7 +5,7 @@
 var cons_ctrl = require("../controllers");
 
 
-var brand = 'Bootstrap for Jade';
+var brand = '快速物流';
 
 exports.index = function(req, res){
   res.redirect('/home');

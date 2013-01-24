@@ -27,10 +27,16 @@
             }
         }
 
-        klass.extend = function (obj) {
-            var extended = obj.exnteded;
+        klass.include = function (obj) {
+            var included = obj.included;
             for (var i in obj)
                 klass.fn[i] = obj[i];
+            if (included) included(klass);
+        };
+        klass.extend = function (obj){
+            var extended = obj.extended;
+            for (var i in obj)
+                klass[i] = obj[i];
             if (extended) extended(klass);
         };
 
@@ -51,7 +57,7 @@
 
     var $view = new Class;
 
-    $view.extend({
+    $view.include({
 
         init: function(view){
 
@@ -113,7 +119,7 @@
 
     var $map = new Class($View);
 
-    $map.extend({
+    $map.include({
 
             init:function () {
 
@@ -173,7 +179,7 @@
 
     var $UI = new Class($View);
 
-    $UI.extend({
+    $UI.include({
 
         init:function(view){
 
@@ -196,7 +202,7 @@
     // 导航条，页面顶部导航
     var $Navbar = new Class(scope.UI);
 
-    $Navbar.extend({
+    $Navbar.include({
 
         navs:[],
 
@@ -244,7 +250,7 @@
 
     var $Nav = new Class;
 
-    $Nav.extend({
+    $Nav.include({
 
         navs:[],
 
@@ -286,7 +292,7 @@
 
     var $nav = new Class;
 
-    $nav.extend({
+    $nav.include({
 
         init:function(view){
 
@@ -308,9 +314,9 @@
 
 (function(scope, $){
 
-    var $Hero = new Class($View);
+    var $Hero = new Class(UI);
 
-    $Hero.extend({
+    $Hero.include({
 
         typeE:{
 
@@ -358,14 +364,12 @@
 
         }
 
-
-
     })
 
 
     var $unit = new Class($View);
 
-    $unit.extend({
+    $unit.include({
 
         init:function(view, type, parent){
 
@@ -401,13 +405,6 @@
     scope.Hero = $Hero;
 
 })(UI, jQuery);
-
-
-
-
-
-
-
 
 
 

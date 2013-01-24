@@ -1,34 +1,4 @@
 script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
 script(type='text/javascript', src='/js/bootstrap.min.js')
-script(src="http://api.map.baidu.com/api?v=1.4")
 script(src="/js/rtlm.common.js")
-script
-    var map = new $Map;
-
-    function inittializeMap(){
-        var Map = new BMap.Map('allmap');
-        var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
-        Map.centerAndZoom(point,16);                     // 初始化地图,设置中心点坐标和地图级别。
-    }
-
-    function loadScript(){
-        var script = document.createElement("script");
-        script.src = "http://api.map.baidu.com/api?v=1.4&callback=inittializeMap";
-        document.body.appendChild(script);
-    }
-    window.onload = loadScript;
-
-
-    var nav = new UI.Navbar(".navbar");
-    var hero = new UI.Hero(".Heroframe", function(){
-        //map.show();
-        //hero.hide();
-
-
-        $.post("/add", {cellphone: '13776571079', location:{lt:118.790722, dm:32.044015}}, function(d){
-            if(d.success){
-                console.log("saved");
-            }
-        })
-
-    });
+script(src="/js/rtlm.support.js")
