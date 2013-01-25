@@ -1,5 +1,14 @@
 /* ===========================================================================
- 包体说明：   地图标记
+ 包体说明：   地图标记，
+            属性：
+                map             ,所属地图
+                marker          ,BMap标记
+                label           ,BMap标签
+            方法
+                lineTo          ,连接地图上另外一个标记
+                    marker      ,另外一个标记
+                    opts        ,连接线属性
+                isEnableDrag    ,是否允许拖拽
 
 
  索引器：     $Marker
@@ -43,9 +52,6 @@
 
             label.setOffset(new BMap.Size(30,10));
 
-            // 允许拖动
-            marker.enableDragging();
-
             //此处判断是否需要添加Label
             //marker.setLabel(label);
 
@@ -72,7 +78,6 @@
         // 添加至地图
         addToMap:function(){
             this.map.addOverlay(this.marker);
-            return this;
         },
 
         // 获取标注标题
@@ -95,21 +100,58 @@
                     marker.marker.getPosition()
                 ]),
 
-                // 距离标签
-                distlabel = new BMap.Label("123123",{}),
-
                 // 本标记位置
                 thisPosition = this.marker.getPosition(),
 
                 // 目标标记位置
-                thatPosition = marker.marker.getPosition();
+                thatPosition = marker.marker.getPosition(),
 
+                // 本标记像素位置
+                thisPixel = this.map.pointToOverlayPixel(thisPosition),
+
+                // 目标标记像素位置
+                thatPixel = this.map.pointToOverlayPixel(thatPosition),
+
+                markersOffset = new BMap.Size(
+                    //100,200
+                    (thatPixel.x - thisPixel.x) / 2 ,
+                    (thatPixel.y - thisPixel.y) / 2
+                ),
+
+                // 距离标签
+                distlabel = new BMap.Label(Math.round(this.map.getDistance(thatPosition, thisPosition)) + '米' ,{offset:markersOffset});
+
+            console.log(thisPixel);
+
+            console.log(thatPixel);
+
+            this.marker.setLabel(distlabel);
 
             this.map.addOverlay(distlabel);
+
             this.map.addOverlay(polyline, defaultOpts);
-            this.diyMarker();
+
             this.lines.push(polyline);
+
             marker.lines.push(polyline);
+
+            return this.marker;
+        },
+
+        enableDrag:function(){
+
+            this.marker.enableDragging();
+
+            return this.marker;
+
+        },
+
+        disableDrag:function(){
+
+            this.marker.disableDragging();
+
+            return this.marker;
+
         },
 
         // 删除这个标记
@@ -119,11 +161,7 @@
             for(var i in this.lines)
                 delete this.lines[i];
             delete this;
-        },
-
-diyMarker:function(){
-
-}
+        }
 });
 
 // 信息窗口类

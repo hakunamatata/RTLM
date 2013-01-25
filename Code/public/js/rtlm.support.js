@@ -52,5 +52,5 @@ var hero = new UI.Hero(".Heroframe", function(){
         marker.lineTo(marker2);
     }
     // $.post("/add", {cellphone: '13776571079', location:{lt:118.790722, dm:32.044015}}, function(d){  if(d.success){  console.log("saved");  } })
-    $('.btn btn-primary').tooltip({title:'123', animation:true, placement:'top', trigger:'hover'});
+
 });
