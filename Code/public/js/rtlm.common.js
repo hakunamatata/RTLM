@@ -387,11 +387,7 @@
 
             var that = this;
 
-            this.myPosition = $(".position-my", this.view.selector);
-
             this.tarPosition = $(".position-tar", this.view.selector);
-
-            this.phone = $(".cellphone", this.view.selector);
 
             if( this.type == this.parent.typeE.consumer){
 
