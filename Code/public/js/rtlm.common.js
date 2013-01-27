@@ -183,6 +183,18 @@
 
         init:function(view){
 
+        },
+
+        show:function(){
+
+            this.view.fadeIn(500);
+
+        },
+
+        hide:function(){
+
+            this.view.fadeOut(500);
+
         }
     });
 
@@ -231,18 +243,6 @@
                 this.navs.push(Nav);
 
             }
-
-        },
-
-        hide:function(func){
-
-            this.view.fadeOut(500, func);
-
-        },
-
-        show:function(func){
-
-            this.view.fadeIn(500, func);
 
         }
 
@@ -328,17 +328,15 @@
 
         },
 
-        units:[],
+        units:{},
 
-        init:function(view, func){
+        init:function(view){
 
             this.view = $(view);
 
-            this.callbackFun = func;
-
             this.derender();
 
-        }   ,
+        },
 
         derender:function(){
 
@@ -346,27 +344,15 @@
 
                 var unit = new $unit(this.view.find("." + this.typeE[i]), this.typeE[i], this);
 
-                this.units.push(unit);
+                this.units[this.typeE[i]] = unit;
 
             }
-
-        },
-
-        hide:function(func){
-
-            this.view.fadeOut(500, func);
-
-        },
-
-        show:function(func){
-
-            this.view.fadeIn(500, func);
 
         }
 
     })
 
-
+    // 首页展示的每个子单元类
     var $unit = new Class($View);
 
     $unit.include({
@@ -387,13 +373,32 @@
 
             var that = this;
 
-            this.tarPosition = $(".position-tar", this.view.selector);
+            this.tarPosition = $(".btn-primary", this.view.selector);
 
             if( this.type == this.parent.typeE.consumer){
 
-                this.tarPosition.bind("click", this.parent.callbackFun);
+                // 定义遮罩层
+                this.modalView = $("#Modal" + this.parent.typeE.consumer);
+
+                this.tarPosition.bind('click', that.proxy(that.consInit));
 
             }
+
+        },
+
+        // 消费者单元目标关闭回调
+        consInit: function(){
+
+            var that = this;
+
+            this.modalView.modal({
+
+                backdrop: 'static',
+
+                keyboard: true
+
+            });
+
 
         }
     })

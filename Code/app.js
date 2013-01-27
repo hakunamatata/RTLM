@@ -12,7 +12,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || config.port);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -39,6 +39,6 @@ app.get('/home', routes.home);
 app.get('/about', routes.about);
 app.post('/add', routes.addConsumer)
 
-app.listen(3000, function(){
-    console.log("Express server listening on port %d in %s mode",3000 , app.settings.env);
+app.listen(config.port, function(){
+    console.log("Express server listening on port %d in %s mode",config.port , app.settings.env);
 });

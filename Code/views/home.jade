@@ -31,8 +31,46 @@ block content
                                 div.span6
                                     p 如果您是一名消费者，需要购买商品但又不方便出行，可以选择RTLM来为您购买
                                     br
-                                    input(type="button", class="btn btn-primary position-tar btn-large pull-right", value="我要买东西，帮我跑腿 >>")
+                                    a(href="#", role="button", data-target="#consModal",  class="btn btn-primary btn-large pull-right") 我要买东西，帮我跑腿 >>
+
                 a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
                 a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
+
+    div#Modalconsumer(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+        div.modal-header
+            button.close(type="button", data-dismiss="modal", aria-hidden="true") x
+            h3#myModalLabel 帮您跑腿前，请先填写手机号码
+        div.modal-body
+            div.container-fluid
+                span.span4.pull-left 手机号码：
+                    input.input-xlarage(placeholder="填写真实的手机号码")
+
+        div.modal-footer
+            button.btn(data-dismiss="modal", aria-hidden="true") 取消
+            button.btn.btn-primary 填完了继续 &rsaquo;&rsaquo;
+
     div#mapmask
     div#allmap
+
+
+
+
+
+
+//        <!-- Button to trigger modal -->
+//<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+//
+//<!-- Modal -->
+//<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+//    <div class="modal-header">
+//        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+//        <h3 id="myModalLabel">Modal header</h3>
+//    </div>
+//    <div class="modal-body">
+//        <p>One fine body…</p>
+//    </div>
+//    <div class="modal-footer">
+//        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+//        <button class="btn btn-primary">Save changes</button>
+//    </div>
+//</div>

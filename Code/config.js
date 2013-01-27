@@ -15,6 +15,7 @@ exports.config = {
         '<meta name="author" content="Leo" />',
     ],
     host: 'localhost',
+    port: 3000,
     site_logo: '', // default is `name`
     site_navs: [
         // [ path, title, [target=''] ]
@@ -31,8 +32,8 @@ exports.config = {
 
     // admin 可删除话题，编辑标签，设某人为达人
     admins: { admin: true },
-    auth_cookie_name: 'node_rtlm',
-    port: 3000
+    auth_cookie_name: 'node_rtlm'
+
 
     // 话题列表显示的话题数量
     //list_topic_count: 20,
