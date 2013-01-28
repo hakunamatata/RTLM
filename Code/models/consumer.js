@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var ConsumerSchema = new Schema({
     cellphone: { type: String },
-    location: { lt: Number, dm:Number, monment: Date }
+    location: { lng: Number, lat:Number, monment: Date }
 });
 
 mongoose.model('Consumer', ConsumerSchema);

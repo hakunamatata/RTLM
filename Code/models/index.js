@@ -10,5 +10,6 @@ mongoose.connect(config.db, function (err) {
 
 // models
 require('./consumer');
-
+require('./customer')
 exports.Consumer = mongoose.model('Consumer');
+exports.Customer = mongoose.model('Customer');

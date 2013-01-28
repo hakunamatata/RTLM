@@ -22,3 +22,13 @@ exports.about = function(req, res){
 exports.addConsumer = function(req, res, next){
     return cons_ctrl.add_consumer(req,res,next);
 }
+
+exports.enumCustomer = function(req , res, next ){
+    return cons_ctrl.enumCustomer(req, res, next);
+};
+
+exports.getArrangedCustomer = function(req, res, next){
+
+    return cons_ctrl.findCustomersAround(req, res, next);
+
+}

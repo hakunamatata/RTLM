@@ -33,7 +33,7 @@ function inittializeMap(){
     loadScript("/js/rtlm.mapextend.js"); //加载地图扩展
     Map = new BMap.Map('allmap');
     var point = new BMap.Point(118.796116, 32.056313);    // 创建点坐标
-    Map.centerAndZoom(point,16);                     // 初始化地图,设置中心点坐标和地图级别。
+    Map.centerAndZoom(point,17);                     // 初始化地图,设置中心点坐标和地图级别。
 }
 
 // 定义页面UI
@@ -67,11 +67,17 @@ window.onload = function(){
                 hero.hide();
                 map.show();
 
-                var point = new BMap.Point(118.796116, 32.056313);
-                var point2 = new BMap.Point(118.807116, 32.066413);
-                var marker = new MapMarker(point, {icon:'/img/marker.png'}, Map);
-                var marker2 = new MapMarker(point2, {icon:'/img/marker.png'}, Map);
-                marker.lineTo(marker2);
+                $.post("/api/getarrangecustomer", {lng:118.796116, lat:32.056313}, function(d){
+
+                    for(var i in d){
+
+                        var point = new BMap.Point(d[i].location.lng, d[i].location.lat);
+
+                        var marker = new MapMarker(point, {icon:'/img/marker.png'}, Map);
+
+                    }
+
+                })
 
             }
 
