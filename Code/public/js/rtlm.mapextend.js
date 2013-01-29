@@ -21,7 +21,7 @@
 
          lines:[],
 
-        init:function(point, opt, map){
+        init:function(point, infoWindow, opt, map){
 
 
             var
@@ -66,10 +66,20 @@
                 this.setTitle(that.getLabelTitle());
             })
 
+            if (infoWindow){
+                marker.addEventListener("click", function(e){
+                    this.openInfoWindow(infoWindow);
+                });
+                this.infoWindow = infoWindow;
+            }
+
+
+
 
             this.map = map;
             this.marker = marker;
             this.label = label;
+
 
             this.addToMap();
 
@@ -121,9 +131,6 @@
                 // 距离标签
                 distlabel = new BMap.Label(Math.round(this.map.getDistance(thatPosition, thisPosition)) + '米' ,{offset:markersOffset});
 
-            console.log(thisPixel);
-
-            console.log(thatPixel);
 
             this.marker.setLabel(distlabel);
 
@@ -180,8 +187,9 @@ $Info.include({
     addToMap:function(point){
         this.map.openInfoWindow(this.infoWindow, point ? point : this.map.getCenter());
     }
-});
+    });
 
-scope.MapMarker = $Marker;
-scope.MapInfo = $Info;
+    scope.MapMarker = $Marker;
+    scope.MapInfo = $Info;
+
 })(window, jQuery);

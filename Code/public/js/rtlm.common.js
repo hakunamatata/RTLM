@@ -408,6 +408,82 @@
 })(UI, jQuery);
 
 
+/* ===========================================================================
+ 包体说明：   配送员类
+
+ 索引器：     $Deliver
+ =========================================================================*/
+(function(scope, $){
+
+    var $Deliver = new Class;
+
+    $Deliver.include({
+
+//        option:{
+//              speed   :Number
+//
+//        }
+        init: function(marker, dest, opt){
+
+            this.marker = marker;
+            this.speed = opt.speed || 0.0001;
+            this.dest = dest;
+            this.map = this.marker.marker.getMap();
+            this.icon = this.marker.marker.getIcon();
+            this.delivered = false;
+
+        },
+
+        fetch:function(){
+
+            var that = this,
+                markerPos = this.marker.getPostion(),
+                destPos = this.dest.getPostion(),
+                alpha = Math.atan2(destPos.lat - markerPos.lat, destPos.lng - markerPos.lng);
+
+            this.marker.remove();
+
+            var t = setInterval(function(){
+
+                that.proxy(that.moveTo(markerPos, alpha,that.speed));
+
+            }, 1000)
+
+        },
+
+        delivery: function(){
+
+
+
+
+        },
+
+        moveTo:function(oldPos, alpha, step){
+
+            var point = new BMap.Point(
+
+                oldPos.lng += step * Math.cos(alpha),
+
+                oldPos.lat += step * Math.sin(alpha)
+
+            );
+
+            marker = new MapMarker(point, null, {icon:this.icon}, this.map);
+
+            this.map.addOverlay(marker);
+
+            this.marker = marker;
+
+        }
+
+
+    })
+
+    scope.Deliver = $Deliver;
+
+})(window, jQuery)
+
+
 
 
 

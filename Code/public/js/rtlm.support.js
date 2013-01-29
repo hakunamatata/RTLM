@@ -56,6 +56,7 @@ window.onload = function(){
                 hero.show()
         })
 
+        // 消费者订购货物
         $(".btn-primary", "#Modalconsumer").click(function(){
 
             __cons_confirm = true; // 标记此为用户确认操作， Modal消失后不在显示 consumer
@@ -67,13 +68,19 @@ window.onload = function(){
                 hero.hide();
                 map.show();
 
+                var myPoint = new BMap.Point(118.796116, 32.056313),
+                    myPosition = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map);
+
+
                 $.post("/api/getarrangecustomer", {lng:118.796116, lat:32.056313}, function(d){
 
                     for(var i in d){
 
                         var point = new BMap.Point(d[i].location.lng, d[i].location.lat);
 
-                        var marker = new MapMarker(point, {icon:'/img/marker.png'}, Map);
+                        var info = new BMap.InfoWindow(d[i].name + "<br>" + d[i].cellphone, {width:100, height:40, maxWidth:120});
+
+                        var marker = new MapMarker(point, info, {icon:'/img/small_red_loc.png'}, Map);
 
                     }
 
@@ -84,6 +91,36 @@ window.onload = function(){
             else
 
                 console.log("please waiting, while tha map is loading...");
+
+        });
+
+
+
+        // 商家要求配送
+        $(".btn-primary", ".costomer").click(function(){
+
+            if(isMapLoaded()){
+
+
+                hero.hide();
+                map.show();
+
+                var myPoint = new BMap.Point(118.796116, 32.056313),
+                    tarPoint= new BMap.Point(118.799116, 32.059313),
+                    myMarker = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map),
+                    tarMarker = new MapMarker(tarPoint, null, {icon:'/img/small_red_loc.png'}, Map);
+
+
+                console.log(tarMarker);
+
+                var deliver = new Deliver(tarMarker, myMarker, {speed:0.0001});
+
+                //deliver.fetch();
+
+            }
+
+
+
 
         });
 
