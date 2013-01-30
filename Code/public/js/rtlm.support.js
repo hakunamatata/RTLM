@@ -45,7 +45,6 @@ var hero = new UI.Hero(".Heroframe");
 window.onload = function(){
 
         // 点击消费者遮罩层书法的事件
-
         var csrm = hero.units["consumer"],
             __cons_confirm = false;
         csrm.modalView.on("show", function(){
@@ -54,6 +53,16 @@ window.onload = function(){
         csrm.modalView.on("hide", function(){
             if(!__cons_confirm)
                 hero.show()
+        });
+
+        var cstm = hero.units["customer"],
+            __cstm_confirm = false;
+        cstm.modalView.on("show", function(){
+            hero.hide();
+        });
+        cstm.modalView.on("hide", function(){
+            if(!__cstm_confirm)
+                hero.show();
         })
 
         // 消费者订购货物
@@ -97,25 +106,50 @@ window.onload = function(){
 
 
         // 商家要求配送
-        $(".btn-primary", ".costomer").click(function(){
+        $(".btn-primary", "#Modalcustomer").click(function(){
+
+            __cstm_confirm = true;
 
             if(isMapLoaded()){
 
-
+                hero.units["customer"].modalView.modal('hide');
                 hero.hide();
                 map.show();
 
                 var myPoint = new BMap.Point(118.796116, 32.056313),
-                    tarPoint= new BMap.Point(118.799116, 32.059313),
+                    tarPoint= [
+                                new BMap.Point(118.798516, 32.058913),
+                                new BMap.Point(118.793673, 32.052725),
+                                new BMap.Point(118.800931, 32.053750),
+                                new BMap.Point(118.789145, 32.054500),
+                                new BMap.Point(118.794086, 32.060023)
+                    ],
+                    consPoint = new BMap.Point(118.791116, 32.056011),
                     myMarker = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map),
-                    tarMarker = new MapMarker(tarPoint, null, {icon:'/img/small_red_loc.png'}, Map);
+                    consMarker = new MapMarker(consPoint,null,{icon:'img/marker.png'}, Map),
+                    tarMarker = new MapMarker(tarPoint[0], null, {icon:'/img/small_red_loc.png'}, Map),
+                    deliver;
 
+                for(var i = 1; i < tarPoint.length; i ++){
+                    var m_tem = new MapMarker(tarPoint[i], null, {icon:'/img/small_red_loc.png'}, Map);
+                    //m_tem.enableDrag();
+                }
 
-                var deliver = new Deliver(tarMarker, myMarker);
+                var wait_t = setTimeout(function(){
 
-                deliver.Call();
+                    deliver = new Deliver(tarMarker, myMarker);
+                    deliver.Call(function(){
+
+                        this.marker = tarMarker;
+                        this.dest = consMarker;
+                        this.Call();
+
+                    });
+
+                }, 2000);
 
             }
+
 
 
 

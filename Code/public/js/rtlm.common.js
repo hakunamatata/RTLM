@@ -322,7 +322,7 @@
 
             about: 'about',
 
-            costomer:'customer',
+            customer:'customer',
 
             consumer:'consumer'
 
@@ -382,6 +382,12 @@
 
                 this.tarPosition.bind('click', that.proxy(that.consInit));
 
+            } else if (this.type == this.parent.typeE.customer){
+
+                this.modalView = $("#Modal" + this.parent.typeE.customer);
+
+                this.tarPosition.bind("click", that.proxy(that.custInit))
+
             }
 
         },
@@ -398,7 +404,17 @@
                 keyboard: true
 
             });
+        },
 
+        custInit:function(){
+
+            this.modalView.modal({
+
+                backdrop: 'static',
+
+                keyboard:true
+
+            })
 
         }
     })
@@ -435,7 +451,7 @@
 
         },
 
-        delivery:function(){
+        delivery:function(callback){
 
             var that = this,
                 markerPos = this.marker.marker.getPosition(),
@@ -452,9 +468,13 @@
                         that.moveTo(markerPos, alpha,that.speed);
                     else{
                         clearInterval(t);
+                        that.map.removeOverlay(that.marker.marker.getLabel());
                         that.isDelivered = true;
+                        if(callback)
+                            callback.apply(that, arguments);
                     }
                 }, 1000);
+
             }
         },
 
@@ -499,10 +519,11 @@
             this.marker.marker.setLabel(distlabel);
         },
 
-        Call:function(){
+        Call:function(callback){
 
             this.isDelivered = false;
-            this.delivery();
+            this.delivery(callback);
+
 
         }
 

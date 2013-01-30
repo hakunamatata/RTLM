@@ -16,13 +16,14 @@ block content
                                     input(type="button", class="btn btn-primary btn-large pull-right", value="详细了解 >>")
                     div.item.exb-unit
                         div.container-fluid
-                            div.row-fluid.costomer
+                            div.row-fluid.customer
                                 div.span6
                                     img(src='/img/6K8S60JZQD14.png')
                                 div.span6
                                     p 如果你是一名商家，有客户通过电话、网络等线下方式下了订单，那么就可以通过RTLM指定人员为您派送
                                     br
-                                    input(type="button", class="btn btn-primary btn-large pull-right", value="我是店家，帮我送东西 >>")
+                                    a(href="#", role="button", data-target="#custModal",  class="btn btn-primary btn-large pull-right") 我是店家，帮我送东西 &lsaquo;&lsaquo;
+
                     div.item.exb-unit
                         div.container-fluid
                             div.row-fluid.consumer
@@ -35,6 +36,35 @@ block content
 
                 a.carousel-control.left(href="#myCarousel",data-slide="prev") &lsaquo;
                 a.carousel-control.right(href="#myCarousel",data-slide="next") &rsaquo;
+
+    div#Modalcustomer(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+        div.modal-header
+            button.close(type="button", data-dismiss="modal", aria-hidden="true") x
+            h3#myModalLabel 帮您跑腿前，请先填写手机号码
+        div.modal-body
+            div.container-fluid
+                span.span4.pull-left 您的店名：&nbsp;&nbsp;&nbsp;
+                    input.input-xlarage(placeholder="填写您的店名")
+
+                span.span4.pull-left.height50
+
+                span.span4.pull-left 店的地址：&nbsp;&nbsp;&nbsp;
+                    input.input-xlarage(placeholder="填写店的地址")
+
+                span.span4.pull-left.height50
+
+                span.span4.pull-left 送往目的地：
+                    input.input-xlarage(placeholder="目的地地址")
+
+                span.span4.pull-left.height50
+
+                span.span4.pull-left 联系人号码：
+                    input.input-xlarage(placeholder="目的地联系人号码")
+        div.modal-footer
+            button.btn(data-dismiss="modal", aria-hidden="true") 取消
+            button.btn.btn-primary 填完了继续 &rsaquo;&rsaquo;
+
+
 
     div#Modalconsumer(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
         div.modal-header
