@@ -111,11 +111,9 @@ window.onload = function(){
                     tarMarker = new MapMarker(tarPoint, null, {icon:'/img/small_red_loc.png'}, Map);
 
 
-                console.log(tarMarker);
+                var deliver = new Deliver(tarMarker, myMarker);
 
-                var deliver = new Deliver(tarMarker, myMarker, {speed:0.0001});
-
-                //deliver.fetch();
+                deliver.Call();
 
             }
 

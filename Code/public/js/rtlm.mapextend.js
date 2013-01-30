@@ -19,8 +19,6 @@
     var $Marker = new Class($View);
     $Marker.include({
 
-         lines:[],
-
         init:function(point, infoWindow, opt, map){
 
 
@@ -138,9 +136,7 @@
 
             this.map.addOverlay(polyline, defaultOpts);
 
-            this.lines.push(polyline);
-
-            marker.lines.push(polyline);
+            this.line = polyline;
 
             return this.marker;
         },
@@ -161,10 +157,12 @@
 
         },
 
+
+
         // 删除这个标记
         remove:function(){
             this.map.removeOverlay(this.marker);
-            this.marker.dispose();
+            delete this.marker;
             for(var i in this.lines)
                 delete this.lines[i];
             delete this;

@@ -423,39 +423,39 @@
 //              speed   :Number
 //
 //        }
-        init: function(marker, dest, opt){
+        init: function(marker, dest){
 
             this.marker = marker;
-            this.speed = opt.speed || 0.0001;
+            this.speed = 0.0001;
+            this.initPosition = new BMap.Point( marker.marker.getPosition().lng,  marker.marker.getPosition().lat);
             this.dest = dest;
             this.map = this.marker.marker.getMap();
             this.icon = this.marker.marker.getIcon();
-            this.delivered = false;
+            this.isDelivered = false;
 
         },
 
-        fetch:function(){
+        delivery:function(){
 
             var that = this,
-                markerPos = this.marker.getPostion(),
-                destPos = this.dest.getPostion(),
-                alpha = Math.atan2(destPos.lat - markerPos.lat, destPos.lng - markerPos.lng);
-
-            this.marker.remove();
-
-            var t = setInterval(function(){
-
-                that.proxy(that.moveTo(markerPos, alpha,that.speed));
-
-            }, 1000)
-
-        },
-
-        delivery: function(){
-
-
-
-
+                markerPos = this.marker.marker.getPosition(),
+                destPos = this.dest.marker.getPosition(),
+                alpha = Math.atan2(destPos.lat - markerPos.lat, destPos.lng - markerPos.lng),
+                t;
+            this.marker.lineTo(this.dest);
+            if(!this.isDelivered){
+                t = setInterval(function(){
+                    var curPosition = that.marker.marker.getPosition(),
+                        tarPosition = that.dest.marker.getPosition(),
+                        distance = Math.sqrt( Math.pow( curPosition.lng - tarPosition.lng , 2) + Math.pow(curPosition.lat - tarPosition.lat, 2));
+                    if( distance > that.speed )
+                        that.moveTo(markerPos, alpha,that.speed);
+                    else{
+                        clearInterval(t);
+                        that.isDelivered = true;
+                    }
+                }, 1000);
+            }
         },
 
         moveTo:function(oldPos, alpha, step){
@@ -468,16 +468,45 @@
 
             );
 
-            marker = new MapMarker(point, null, {icon:this.icon}, this.map);
+            this.marker.marker.setPosition(point);
+            this.marker.line.setPath([
+                this.marker.marker.getPosition(),
+                this.dest.marker.getPosition()
+            ]);
 
-            this.map.addOverlay(marker);
+            // 本标记位置
+            var thisPosition = this.marker.marker.getPosition(),
 
-            this.marker = marker;
+                // 目标标记位置
+                thatPosition = this.dest.marker.getPosition(),
+
+                // 本标记像素位置
+                thisPixel = this.map.pointToOverlayPixel(thisPosition),
+
+                // 目标标记像素位置
+                thatPixel = this.map.pointToOverlayPixel(thatPosition),
+
+                markersOffset = new BMap.Size(
+                    //100,200
+                    (thatPixel.x - thisPixel.x) / 2 ,
+                    (thatPixel.y - thisPixel.y) / 2
+                ),
+
+            // 距离标签
+            distlabel = new BMap.Label(Math.round(this.map.getDistance(thatPosition, thisPosition)) + '米' ,{offset:markersOffset});
+            var label = this.marker.marker.getLabel();
+            this.map.removeOverlay(label);
+            this.marker.marker.setLabel(distlabel);
+        },
+
+        Call:function(){
+
+            this.isDelivered = false;
+            this.delivery();
 
         }
 
-
-    })
+    });
 
     scope.Deliver = $Deliver;
 
