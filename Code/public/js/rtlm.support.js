@@ -36,6 +36,53 @@ function inittializeMap(){
     Map.centerAndZoom(point,17);                     // 初始化地图,设置中心点坐标和地图级别。
 }
 
+
+function createDeliversArround(customer){
+
+    var newPoints = [],
+        maxNum = 5,
+        nearest,
+        nearstMarker,
+        marker,
+        minDest = 999999999,
+        Point = customer.marker.getPosition();
+
+
+    for(var i = 0; i < maxNum; i ++ ){
+
+        var newPoint = new BMap.Point(
+                (Point.lng * 1000000 + Math.round( Math.random()*5000 )) / 1000000 ,
+                (Point.lat * 1000000 + Math.round( Math.random()*5000 )) / 1000000
+            ),
+
+            distance = Map.getDistance(Point, newPoint);
+
+        if ( distance < minDest ){
+
+            minDest = distance;
+
+            nearest = newPoint;
+
+            marker = new MapMarker(nearest, null, {icon:'img/small_red_loc.png'}, Map);
+
+            nearstMarker = marker;
+
+        } else {
+
+            marker = new MapMarker(nearest, null, {icon:'img/small_red_loc.png'}, Map);
+        }
+
+        newPoints.push(newPoint);
+
+    };
+
+    return nearstMarker;
+
+}
+
+
+
+
 // 定义页面UI
 var nav = new UI.Navbar(".navbar");
 
@@ -85,11 +132,33 @@ window.onload = function(){
 
                     for(var i in d){
 
-                        var point = new BMap.Point(d[i].location.lng, d[i].location.lat);
+                        var point = new BMap.Point(d[i].location.lng, d[i].location.lat),
 
-                        var info = new BMap.InfoWindow(d[i].name + "<br>" + d[i].cellphone, {width:100, height:40, maxWidth:120});
+                            windowHTML=[
+                                            "<div>",
+                                            d[i].name, "<br />",
+                                            d[i].cellphone, "<br />",
+                                            "<input type='button' value='选择'"," id='order_",i,"'",
+                                             "/>","</div>"
+                                        ].join('');
 
-                        var marker = new MapMarker(point, info, {icon:'/img/small_red_loc.png'}, Map);
+                        var info = new BMap.InfoWindow( windowHTML  , {width:100, height:80, maxWidth:120});
+
+                        var  marker = new MapMarker(point, info, {icon:'/img/marker_orange_c.png'}, Map);
+
+                        info.addEventListener('open', function(e){
+
+                            var tar = e.target,
+
+                                point = e.point;
+
+                            $("#order_" + i).click(function(){
+
+                                var deliver = createDeliversArround(marker);
+
+                            });
+
+                        })
 
                     }
 
@@ -118,7 +187,7 @@ window.onload = function(){
 
                 var myPoint = new BMap.Point(118.796116, 32.056313),
                     tarPoint= [
-                                new BMap.Point(118.798516, 32.058913),
+                                new BMap.Point(118.797516, 32.057913),
                                 new BMap.Point(118.793673, 32.052725),
                                 new BMap.Point(118.800931, 32.053750),
                                 new BMap.Point(118.789145, 32.054500),
@@ -126,7 +195,7 @@ window.onload = function(){
                     ],
                     consPoint = new BMap.Point(118.791116, 32.056011),
                     myMarker = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map),
-                    consMarker = new MapMarker(consPoint,null,{icon:'img/marker.png'}, Map),
+                    consMarker = new MapMarker(consPoint,null,{icon:'img/marker_orange_c.png'}, Map),
                     tarMarker = new MapMarker(tarPoint[0], null, {icon:'/img/small_red_loc.png'}, Map),
                     deliver;
 
@@ -155,6 +224,8 @@ window.onload = function(){
 
 
         });
+
+
 
 
 //    if(isMapLoaded()){
