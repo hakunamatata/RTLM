@@ -125,40 +125,60 @@ window.onload = function(){
                 map.show();
 
                 var myPoint = new BMap.Point(118.796116, 32.056313),
-                    myPosition = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map);
+                    myMarker = new MapMarker(myPoint, null, {icon:'/img/marker.png'}, Map);
 
 
                 $.post("/api/getarrangecustomer", {lng:118.796116, lat:32.056313}, function(d){
 
                     for(var i in d){
 
-                        var point = new BMap.Point(d[i].location.lng, d[i].location.lat),
+                        var point = new BMap.Point(d[i].location.lng, d[i].location.lat);
 
-                            windowHTML=[
-                                            "<div>",
-                                            d[i].name, "<br />",
-                                            d[i].cellphone, "<br />",
-                                            "<input type='button' value='选择'"," id='order_",i,"'",
-                                             "/>","</div>"
-                                        ].join('');
+                        var  marker = new MapMarker(point, null, {icon:'/img/marker_orange_c.png'}, Map);
 
-                        var info = new BMap.InfoWindow( windowHTML  , {width:100, height:80, maxWidth:120});
+                        marker.marker.addEventListener('click', function(me){
 
-                        var  marker = new MapMarker(point, info, {icon:'/img/marker_orange_c.png'}, Map);
+                            var windowHTML=[
+                                    "<div>",
+                                    d[i].name, "<br />",
+                                    d[i].cellphone, "<br />",
+                                    "<input type='button' value='选择'"," id='btnOrder'",
+                                    "/>","</div>"
+                                ].join('');
 
-                        info.addEventListener('open', function(e){
+                            var info = new BMap.InfoWindow( windowHTML  , {width:100, height:80, maxWidth:120});
 
-                            var tar = e.target,
+                            Map.openInfoWindow(info, me.point);
 
-                                point = e.point;
+                            info.addEventListener('open', function(ie){
 
-                            $("#order_" + i).click(function(){
+                                $("#btnOrder").click(function(){
 
-                                var deliver = createDeliversArround(marker);
 
-                            });
+
+                                    var nestGuy = createDeliversArround(marker);
+
+                                    var deliver = new Deliver(nestGuy, marker);
+
+                                    deliver.Call(function(){
+
+                                        this.marker = nestGuy;
+                                        this.dest = myMarker;
+                                        this.Call();
+
+                                    });
+
+                                })
+
+                            })
+
+
+
+
+
 
                         })
+
 
                     }
 
@@ -238,3 +258,4 @@ window.onload = function(){
     // $.post("/add", {cellphone: '13776571079', location:{lt:118.790722, dm:32.044015}}, function(d){  if(d.success){  console.log("saved");  } })
 
 };
+
