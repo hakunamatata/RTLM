@@ -37,9 +37,6 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/about', routes.about);
-app.post('/add', routes.addConsumer)
-//app.get('/randomCustomer', routes.enumCustomer);
-app.post('/api/getarrangecustomer', routes.getArrangedCustomer);
 
 app.listen(config.port, function(){
     console.log("Express server listening on port %d in %s mode",config.port , app.settings.env);

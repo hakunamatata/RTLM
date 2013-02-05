@@ -3,14 +3,14 @@ html
   include inc/header
 
   body
-    div.navbar.navbar-fixed-top
+    div.navbar.navbar-fixed-top.navbar-inverse
       div.navbar-inner
         div.container
           a(data-toggle='collapse', data-target='.nav-collapse').btn.btn-navbar
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a(href='#').brand #{brand}
+          a(href='/').brand #{brand}
          // ul.nav
             - var obj = { 'home':'Home', 'about':'About' }
               - each val, key in obj
