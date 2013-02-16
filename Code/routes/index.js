@@ -11,9 +11,17 @@ exports.index = function(req, res){
 }
 
 exports.home = function(req, res){
-  res.render('home', { title: 'Home', id: 'home', brand: brand })
+  res.render('home', {active: ''})
 };
 
 exports.about = function(req, res){
-  res.render('about', { title: 'About', id: 'about', brand: brand })
+  res.render('about', {active: 'about'})
 };
+
+exports.store = function(req, res){
+    res.render('store', {active: 'store'})
+}
+
+exports.buy = function(req, res){
+    res.render('buy',{active: 'buy'})
+}

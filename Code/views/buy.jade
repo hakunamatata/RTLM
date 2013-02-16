@@ -1,0 +1,35 @@
+extends inc/layout
+block content
+  div.fixed.Heroframe
+    div.container
+      div.hero-unit
+        div.row-fluid
+          div.span12
+            h2 用户配送
+        div.row-fluid.consumer
+          div.span6
+            img.image.img-rounded(src="img/consumer_delivers.jpg",width="500px")
+          div.span6
+
+            p &nbsp; &nbsp; &nbsp; &nbsp; 我们将为用户提供极为方便的“零等待”的购物体验，用户在我们网站的商家中购买商品时，我们将在短时间内为您配送，因为我们将在您购买的商家周围选取最近的配送人员，给您节约宝贵时间。
+
+            p &nbsp; &nbsp; &nbsp; &nbsp; 配送人员获得物品之后便立即前往配送，直到配送完成为止的全过程，您都可以凭订单号在网站上查看配送人员的位置以及配送时间等信息。
+
+            a(href="#", role="button", data-target="#consModal",  class="btn btn-primary btn-large pull-right") 立即体验
+
+
+  div#Modalconsumer(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    div.modal-header
+      button.close(type="button", data-dismiss="modal", aria-hidden="true") x
+      h3#myModalLabel 帮您跑腿前，请先填写手机号码
+    div.modal-body
+      div.container-fluid
+        span.span4.pull-left 手机号码：
+          input.input-xlarage(placeholder="填写真实的手机号码")
+
+    div.modal-footer
+      button.btn(data-dismiss="modal", aria-hidden="true") 取消
+      button.btn.btn-primary 填完了继续 &rsaquo;&rsaquo;
+
+  div#mapmask
+  div#allmap

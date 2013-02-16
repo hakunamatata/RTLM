@@ -1,0 +1,36 @@
+!!!
+html
+  include header
+
+  body
+    div.navbar.navbar-fixed-top.navbar-inverse
+      div.navbar-inner
+        div.container
+          a(data-toggle='collapse', data-target='.nav-collapse').btn.btn-navbar
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href='/').brand 快速物流演示
+          ul.nav
+            - if (active == 'about')
+                li.active
+                  a(href='about') 详细了解
+            - else
+                li
+                  a(href='about') 详细了解
+            - if (active == 'store')
+                li.active
+                  a(href='store') 商店配送
+            - else
+                li
+                  a(href='store') 商店配送
+            - if (active == 'buy')
+                li.active
+                  a(href='store') 用户配送
+            - else
+                li
+                  a(href='buy') 用户配送
+
+    block content
+    include footer
+    include scripts

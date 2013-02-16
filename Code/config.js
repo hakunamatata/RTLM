@@ -14,7 +14,7 @@ exports.config = {
     site_headers: [
         '<meta name="author" content="Leo" />',
     ],
-    host: 'localhost',
+    host: '127.0.0.1',
     port: 3000,
     site_logo: '', // default is `name`
     site_navs: [

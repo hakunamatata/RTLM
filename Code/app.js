@@ -37,6 +37,9 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/home', routes.home);
 app.get('/about', routes.about);
+app.get('/buy', routes.buy);
+app.get('/store', routes.store);
+
 
 app.listen(config.port, function(){
     console.log("Express server listening on port %d in %s mode",config.port , app.settings.env);

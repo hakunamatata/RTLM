@@ -1,0 +1,48 @@
+extends inc/layout
+block content
+  div.fixed.Heroframe
+    div.container
+      div.hero-unit
+        div.row-fluid
+          div.span12
+            h2 商店配送
+        div.row-fluid.customer
+          div.span6
+              img.image.img-rounded(src="img/customer_delivers.jpg",width="500px")
+          div.span6
+
+            p &nbsp; &nbsp; &nbsp; &nbsp; 我们将为商家提一种在有限区域内快速配送的服务。我们将在您所提供的位置周边指定我们的配送人员，确保配送人员距离您的位置最短，从而能够以最短的时间从您哪儿获取配送物品。
+
+            p &nbsp; &nbsp; &nbsp; &nbsp; 配送人员获得物品之后便立即前往配送，直到配送完成为止的全过程，您和您的消费者都可以凭订单号在网站上查看配送人员的位置以及配送时间等信息。
+
+            a(href="#", role="button", data-target="#custModal",  class="btn btn-primary btn-large pull-right") 立即体验
+
+
+
+  div#Modalcustomer(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    div.modal-header
+      button.close(type="button", data-dismiss="modal", aria-hidden="true") x
+      h3#myModalLabel 帮您跑腿前，请先填写手机号码
+    div.modal-body
+      div.container-fluid
+        span.span4.pull-left 您的店名：&nbsp;&nbsp;&nbsp;
+          input.input-xlarage(placeholder="填写您的店名")
+        span.span4.pull-left.height50
+        span.span4.pull-left 店的地址：&nbsp;&nbsp;&nbsp;
+          input.input-xlarage(placeholder="填写店的地址")
+        span.span4.pull-left.height50
+        span.span4.pull-left 送往目的地：
+          input.input-xlarage(placeholder="目的地地址")
+        span.span4.pull-left.height50
+        span.span4.pull-left 联系人号码：
+          input.input-xlarage(placeholder="目的地联系人号码")
+    div.modal-footer
+      button.btn(data-dismiss="modal", aria-hidden="true") 取消
+      button.btn.btn-primary 填完了继续 &rsaquo;&rsaquo;
+
+
+
+  div#mapmask
+  div#allmap
+
+
